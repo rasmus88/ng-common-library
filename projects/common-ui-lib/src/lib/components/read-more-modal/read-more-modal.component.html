@@ -1,0 +1,18 @@
+<div #divElementRef [class.collapsed]="isCollapsed">
+    <span #contentTextRef>
+      <ng-content></ng-content>
+    </span>
+  </div>
+  
+  <ng-template [ngTemplateOutlet]="buttonsContainer"></ng-template>
+  
+  <ng-template #buttonsContainer>
+      <div *ngIf="isEllipsisActive" (click)="openModal()" class="div-collapse">
+        <ng-container *ngTemplateOutlet="customButtonTemplateRef ? customButtonTemplateRef : defaultButtons; context: {isModalOpened: isModalOpened}"></ng-container>
+      </div>
+  </ng-template>
+  
+  <ng-template #defaultButtons>
+      <p *ngIf="!isModalOpened"> Show more</p>
+      <p *ngIf="isModalOpened"> Show less</p>
+  </ng-template>
