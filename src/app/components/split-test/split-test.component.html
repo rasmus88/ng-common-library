@@ -1,10 +1,27 @@
-<div class="splitter">
-    <ng-template [ngTemplateOutlet]="left">
-    </ng-template>
+<div class="splitterContainer"> 
 
-    <ng-template [ngTemplateOutlet]="right"> 
-    </ng-template>
+  <ng-template *ngIf="left" [ngTemplateOutlet]="leftContainer"></ng-template>
 
-    <ng-template [ngTemplateOutlet]="bottom"> 
-    </ng-template>
+  <ng-template *ngIf="right" [ngTemplateOutlet]="rightContainer"></ng-template> 
+  
+  <ng-template *ngIf="bottom" [ngTemplateOutlet]="bottomContainer"></ng-template>
+ 
 </div>
+
+<ng-template #leftContainer>
+  <div class="left">
+      <ng-template [ngTemplateOutlet]="left"></ng-template>
+  </div>
+</ng-template>
+
+<ng-template #rightContainer>
+  <div class="right">
+      <ng-template [ngTemplateOutlet]="right"></ng-template>  
+  </div>
+</ng-template>
+
+<ng-template #bottomContainer>
+  <div class="bottom">
+      <ng-template [ngTemplateOutlet]="bottom"></ng-template>
+  </div>
+</ng-template>

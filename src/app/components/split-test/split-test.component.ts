@@ -15,11 +15,9 @@ export class SplitTestComponent {
   }
 
   ngAfterViewInit() {
-     console.log(`
-     ${this.left}
-     ${this.right}
-     ${this.bottom}
-     `);
+     console.log(`${this.left} 
+                  ${this.right}
+                  ${this.bottom}`);
   }
 
 }
