@@ -7,6 +7,7 @@
  // Components
  export * from './lib/components/read-more/read-more.component';
  export * from './lib/components/read-more-modal/read-more-modal.component';
+ export * from './lib/components/resizable-splitter/resizable-splitter.component';
  
  // Pipes
  export * from './lib/pipes/replace.pipe';

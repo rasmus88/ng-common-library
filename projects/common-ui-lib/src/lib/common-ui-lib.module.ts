@@ -8,12 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // Custom Components
 import { ReadMoreComponent } from './components/read-more/read-more.component';
 import { ReadMoreModalComponent } from './components/read-more-modal/read-more-modal.component';
+import { ResizableSplitterComponent } from './components/resizable-splitter/resizable-splitter.component';
 
 // Custom Pipes
 import { ReplacePipe } from './pipes/replace.pipe';
 import { CallbackFilterPipe } from './pipes/callback-filter.pipe';
 import { DefaultPipe } from './pipes/default.pipe';
-import { DebounceInputPipe } from './pipes/debounce-input.pipe'; 
+import { DebounceInputPipe } from './pipes/debounce-input.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DebounceInputPipe } from './pipes/debounce-input.pipe';
     ReplacePipe, 
     CallbackFilterPipe,
     DefaultPipe,
-    DebounceInputPipe
+    DebounceInputPipe,
+    ResizableSplitterComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { DebounceInputPipe } from './pipes/debounce-input.pipe';
   exports: [
     ReadMoreComponent,
     ReadMoreModalComponent,
+    ResizableSplitterComponent,
     ReplacePipe,
     CallbackFilterPipe,
     DefaultPipe,
