@@ -136,12 +136,12 @@
 
 <div class="card mt-2">
   <div class="card-body">
-    <h3 class="card-title text-info">Draggable splitter component</h3>
+    <h3 class="card-title text-info">Resizable/dragable splitter component</h3>
     <p class="card-text text-secondary">Beskrivning: Används till för att separera och vi innehåll. <br> 
       Komponenten tar emot tre stycken ng templates, inputs: 'left' 'right' 'bottom'</p>
     <div class="text-success">Output<hr>
       
-      <split-test [left]="left" [handler]="handler" [right]="right" [bottom]="bottom"></split-test>
+      <resizable-splitter [left]="left" [handler]="handler" [right]="right" [bottom]="bottom"></resizable-splitter>
 
       <ng-template #left>
         <div class="card h-100">
