@@ -1,7 +1,6 @@
 <alert>
   <ng-template #customButtonTemplate let-on="on" let-alertsArray="alertsArray">
     <div *ngFor="let alert of alertsArray" class="{{ on.cssClass(alert) }}">
-      <h1></h1>
       <a class="close" (click)="on.remove(alert)">&times;</a> 
       <span [innerHTML]="alert.message"></span>
    </div>
