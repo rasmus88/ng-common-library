@@ -2,12 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core'; 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 
 // Angular Material
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-// Custom 
+// Pages components
+import { HomeComponent } from './pages/home/home.component';
+import { TestComponent } from './pages/test/test.component'; 
+
+// Custom components 
 import { AppComponent } from './app.component';
 import { DebouncePipe } from './pipes/test.pipe'
 import { TestDirective } from './directives/test.directive';
@@ -22,7 +27,9 @@ import { PageCardedComponent } from './components/page-carded/page-carded.compon
 import { ArticlesComponent } from './components/articles/articles.component';  
 // Splitter component
 import { SplitTestComponent } from './components/split-test/split-test.component';
- 
+// Alert notification component
+import { AlertNotificationComponent } from './components/alert-notification/alert-notification.component'; 
+
 // Cummon UI Module
 import { CommonUiLibraryModule } from 'common-ui-library';
 
@@ -39,7 +46,10 @@ import { CommonUiLibraryModule } from 'common-ui-library';
     ReusableTestComponent,
     PageCardedComponent,
     ArticlesComponent,
-    SplitTestComponent
+    SplitTestComponent,
+    AlertNotificationComponent,
+    HomeComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,8 @@ import { CommonUiLibraryModule } from 'common-ui-library';
     BrowserAnimationsModule,
     MatDialogModule,
     MatExpansionModule,
-    CommonUiLibraryModule
+    CommonUiLibraryModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} }
