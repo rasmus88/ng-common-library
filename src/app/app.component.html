@@ -1,242 +1,42 @@
-<div class="container-fluid">
-<div class="row">
-  <div class="col-1">
-   <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical"> 
-    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-   <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-  </div> 
-</div>
-
-<div class="col">
-<main role="main">
-   <div class="container">
-     <div class="row"> 
-      <h1>Angular hjälpbibliotek</h1> 
-     </div>
-   <div class="row">
-     <h3><b>Pipes |</b></h3>
+<alert>
+  <ng-template #customButtonTemplate let-on="on" let-alertsArray="alertsArray">
+    <div *ngFor="let alert of alertsArray" class="{{ on.cssClass(alert) }}">
+      <a class="close" (click)="on.remove(alert)">&times;</a> 
+      <span [innerHTML]="alert.message"></span>
    </div>
-   <div class="card">
-      <div class="card-body">
-        <h3 class="card-title text-info">replaceByPipe</h3>
-        <p class="card-text text-secondary">Beskrivning: För att ersätta en bokstav etc.</p> 
-       <pre> 
-          <code>{{ 'Adam' | replaceByPipe: 'A': ' '</code> }}
-       </pre>
-
-       <div class="text-success">Output<hr>
-         <p><b>{{ 'Adam' | replaceByPipe: 'A': ' ' }}</b></p>
-       </div>
-      </div>
-  </div>
-
-  <div class="card mt-2">
-    <div class="card-body">
-      <h3 class="card-title text-info">callbackFilter</h3>
-      <p class="card-text text-secondary">Beskrivning: För att filtrera värden i en iteration etc.</p> 
-      <pre>
-        <code> 
-          *ngFor="let person of personArray | callbackFilter: filterObj
-        </code>
-      </pre>
-
-      <div class="text-success">Output<hr>
-        <li *ngFor="let person of personArray | callbackFilter: filterObj">
-          <b>{{ person.firstName }}</b>
-        </li> 
-      </div>
-    </div>
- </div>
-
- <div class="card mt-2">
-  <div class="card-body">
-    <h3 class="card-title text-info">defaultPipe</h3>
-    <p class="card-text text-secondary">Beskrivning: För att visa ett default värde om inget värde finns.</p>  
-      <pre> 
-        <code>{{ myVar | defaultPipe: 'default value' </code> }}
-     </pre>  
-
-    <div class="text-success">Output<hr>
-      <p><b>{{ defaultPipeTest | defaultPipe: 'default value' }}</b></p>
-    </div>
-  </div>
-</div>
-
-<div class="card mt-2">
-  <div class="card-body">
-    <h3 class="card-title text-info">debounceInputPipe</h3>
-    <p class="card-text text-secondary">Beskrivning: Fördröjning x antal ms sekunder (default 500) innan nytt värde visas.</p>
-     <pre> 
-      {{ <code>userInput | debounceInputPipe: 1200 </code> }}
-     </pre>
-
-    <div class="text-success">Output<hr> 
-      <input type="text" class="form-control" name="testar" [(ngModel)]="userInput" placeholder="Ange ett värde" />
-      <br>
-      <br>
-       <p><b>{{ userInput | debounceInputPipe: 1200 }}</b></p>
-    </div>
-  </div>
-</div>
-
-<div class="row mt-2">
-  <h3><b>Components</b></h3>
-</div>
-
-<div class="card mt-2">
-  <div class="card-body">
-    <h3 class="card-title text-info">read-more</h3>
-    <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera eller dölja texten. <br> 
-    Det finns en default vy och en custom vy man kan lägga till.</p> 
-    <pre> &lt;read-more&gt;text&lt;/read-more&gt;</pre>
-    För custom vyn så ger man komponenten en ng-template och namnge den som #customButtonTemplate
+  </ng-template>
+</alert>
+  
+<div class="container-fluid">
+  <div class="row"> 
+    <div class="col-1">
+      <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     
-    <div class="text-success">Output<hr> 
-     <read-more>
-       Testar test test test asdasd asdsad sad sadasd sadsad oaskodoadskodsao koaskdoosaokadso sakodkosakdko kaosd
-       <ng-template #customButtonTemplate let-isCollapsed="isCollapsed">
-         <button class="btn btn-primary">
-           <span *ngIf="isCollapsed">Visa mer</span>
-           <span *ngIf="!isCollapsed">Dölj</span>
-         </button>
-       </ng-template>
-      </read-more>
-    </div>
-  </div>
-</div>
-
-<div class="card mt-2">
-  <div class="card-body">
-    <h3 class="card-title text-info">read-more-modal</h3>
-    <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera eller dölja texten med en modal dialog. <br> 
-    Komponenten tar emot två stycken ng templates #customModalTemplate och #customButtonTemplate</p>
-   
-    <pre> &lt;read-more-modal&gt;text&lt;/read-more-modal&gt;</pre>
-    <div class="text-success">Output<hr>
+       <a class="nav-link" routerLink="/home" routerLinkActive="active" id="v-pills-home-tab" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
     
-      <read-more-modal>Test testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa
-        <ng-template #customModalTemplate>
-          <div mat-dialog-content [hidden]="hide">
-            Test testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa
-          </div>
-          <h1>HEJ</h1>
-          <div class="float-left">
-            <button class="btn btn-success" (click)="toggleHide()">Testar med en knapp!</button>
-          </div>
-          <div class="float-right">
-            <button class="btn btn-danger">En till knapp..</button>
-          </div> 
-        </ng-template> 
-      </read-more-modal> 
+       <a class="nav-link" routerLink="/test" id="v-pills-profile-tab" data-toggle="pill" role="tab" aria-controls="v-pills-profile" aria-selected="false">Test</a>
+    
+       <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">-</a>
+    
+       <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false">-</a>
+     </div> 
     </div>
-  </div>
-</div>
-
-<div class="card mt-2">
-  <div class="card-body">
-    <h3 class="card-title text-info">Resizable/dragable splitter component</h3>
-    <p class="card-text text-secondary">Beskrivning: Används till för att separera och vi innehåll. <br> 
-      Komponenten tar emot tre stycken ng templates, inputs: 'left' 'right' 'bottom'</p>
-    <div class="text-success">Output<hr>
-      
-      <resizable-splitter [left]="left" [handler]="handler" [right]="right" [bottom]="bottom"></resizable-splitter>
-
-      <ng-template #left>
-        <div class="card h-100">
-          <div class="card-body">
-            <h3 clsas="card-title text-info">Left container</h3>
-            <p class="card-text text-secondary">innehåll... ijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidaoidjsaoijijsaoidaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijoijijsaoidjsaoijijsaoidjs</p>
-          </div>
-      </div> 
-      </ng-template>
-
-      <ng-template #handler>
-        <div class="handle-area"></div>
-      </ng-template>
-
-      <ng-template #right> 
-        <div class="card h-100">
-           <div class="card-body">
-             <h3 clsas="card-title text-info">Right container</h3>
-             <p class="card-text text-secondary">inasd saidjsadi oiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijijsaoidjsaoij ijsaoidjsaoijijsaoidjsaoij</p>
-           </div>
-         </div>
-      </ng-template>
-
-      <ng-template #bottom> 
-       <div class="card mt-1">
-          <div class="card-body">
-            <h3 clsas="card-title text-info">Bottom container</h3>
-            <p class="card-text text-secondary">innehåll...</p>
-          </div>
-        </div>  
-      </ng-template> 
-  </div>
- </div>
-</div> 
-
-<div class="container">
-  <div class="row">
-     <h1>Testing reusable components</h1>
-  </div>
-  <div class="card mt-2">
-    <div class="card-body">
-      <div class="card-title">
-        <h3>Reusable component</h3>
-      </div>
-      
-      <articles [dataSource]="personArray"></articles>
- 
-    </div>
-  </div>
-</div>   
-
-<div class="container mt-2"> 
-   <card-container>
-    <ng-container class="title">HEADING</ng-container>
-    <div class="text">text..</div>
-   </card-container>
-</div>
-
-<!--  
-  <mat-expansion-panel expanded>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        TITLE
-      </mat-panel-title>
-      <mat-panel-description>
-        DESCRIPTION
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <ng-container *ngTemplateOutlet="matExpansionPanelContent"></ng-container>
-
-    <ng-template #matExpansionPanelContent>               
+    <div class="col"> 
       <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-            <p>content content content content content content content content content content content content content content content content content</p>
-          </div>
-          <div class="col">
-            <p>asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji </p>
-          </div>
+        <div class="row"> 
+         <div class="col">
+
+          <main role="main">
+           <div class="container">
+             <div class="row"> 
+                <h1>Angular hjälpbibliotek</h1> 
+             </div>
+             <router-outlet></router-outlet>
+            </div>
+          </main>
         </div>
-      </div>
-    </ng-template>
-  </mat-expansion-panel>
-   -->
-
+     </div>
+    </div> 
+  </div>
+ </div>
 </div>
-</main>
-</div> 
-</div> 
-</div>
- 
-
-<!--  
-<footer class="container fixed-bottom">
-  <hr>
-  <p>Angular UI bibliotek</p>
-</footer>
--->
