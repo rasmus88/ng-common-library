@@ -1,0 +1,21 @@
+<!-- Content / items -->
+<div *ngFor="let item of itemsTempArray">
+   <div>{{ item.name }}</div>
+</div>
+
+<!-- Pagination -->
+<hr>
+<div>currentPage: {{currentPageNumber}}</div>
+<hr>
+<div class="pagination-container"> 
+  <div class="prev" (click)="prev()">< Prev</div>
+
+   <ng-container *ngFor="let page of pagesTempArray">
+
+     <div class="page" [ngClass]="{'active': page.active}" (click)="paginateItems(page.number)">
+      {{ page.number }}
+     </div>
+   </ng-container>
+
+  <div class="next" (click)="next()">Next ></div> 
+</div>

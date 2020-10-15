@@ -1,0 +1,31 @@
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+   // justify-content: space-between;
+    //width: fit-content;
+    height: 100%;
+    border: 2px solid #ccc; 
+ 
+    .page {
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 10;
+        cursor: pointer;
+      }
+
+     .prev { 
+        @extend .page; 
+        flex-grow: 1;
+        font-size: 8px;
+     }
+     .next { 
+        @extend .page;
+        flex-grow: 1;
+        font-size: 8px; 
+     }
+
+     .active {
+         font-weight: bold;
+     }
+}
