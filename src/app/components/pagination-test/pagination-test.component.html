@@ -5,17 +5,19 @@
 
 <!-- Pagination -->
 <hr>
-<div>currentPage: {{currentPageNumber}}</div>
+<div>currentPage: {{activePageNumber}}</div>
 <hr>
-<div class="pagination-container"> 
-  <div class="prev" (click)="prev()">< Prev</div>
 
-   <ng-container *ngFor="let page of pagesTempArray">
+<div class="pagination-container">
+  <div class="first" (click)="firstPage()">First</div>
+   <div class="prev" (click)="previousPage()">< Prev</div>
 
-     <div class="page" [ngClass]="{'active': page.active}" (click)="paginateItems(page.number)">
+    <ng-container *ngFor="let page of pageNavigationSectionArray">
+     <div class="page" [ngClass]="{'active': page.active}" (click)="changePageNavigation(page.number)">
       {{ page.number }}
-     </div>
-   </ng-container>
+    </div>
+    </ng-container>
 
-  <div class="next" (click)="next()">Next ></div> 
+   <div class="next" (click)="nextPage()">Next ></div>
+  <div class="last" (click)="lastPage()">Last</div>
 </div>

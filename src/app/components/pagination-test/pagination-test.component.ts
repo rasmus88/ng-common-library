@@ -1,11 +1,5 @@
-import { newArray } from '@angular/compiler/src/util';
-import { Component, Input, OnInit } from '@angular/core';
-
-interface Item {
-  id: number;
-  name: string;
-}
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+ 
 interface Page {
   active: boolean;
   number: number;
@@ -16,111 +10,127 @@ interface Page {
   templateUrl: './pagination-test.component.html',
   styleUrls: ['./pagination-test.component.scss']
 })
+
 export class PaginationTestComponent implements OnInit {
   @Input() items: Array<any>;
-
-  pagesArray: Array<Page>;
-  pagesTempArray: Array<Page>;
-
-  itemsArray: Array<any>;
+  @Output() OnPageChange: EventEmitter<Event>;
+ 
+  // Items props
+  itemsArray: Array<any>;  // replace with input later
   itemsTempArray: Array<any>;
-
-  currentPageNumber: number;
-  defaultPageSize: number = 10;
+  defaultItemsPerPage: number = 10; // replace with input later
+   
+  // Pagination navigation props
+  pageNavigationArray: Array<Page>;
+  pageNavigationSectionArray: Array<Page>;
+  defaultPageNavigationSize: number = 10; 
   defaultPageNumber: number = 1;
+  activePageNumber: number = 1;
    
   /* 
      1. Gör en statisk paginering 
      2. Gör en återanvändbar dynamisk paginering
   */  
  
-  constructor() { 
-     // fill array with items  
-    this.fillItemsArray(); 
+  constructor() {
+
+    this.fillItemsArray(); // Ta bort sen 
+  }
+
+  ngOnInit() {
  
+    this.loadDefaultPageNavigation();  
   }
 
-  ngOnInit() {  
- 
-    this.createPagination();
-
-    this.paginateItems(this.defaultPageNumber);
-  }
-
-  next() {
-     const nextPageNumber = this.currentPageNumber >= this.defaultPageSize ? this.defaultPageSize : this.currentPageNumber +1;
-     this.paginateItems(nextPageNumber); 
-  }
-  
-  prev() {
-     const prevPageNumber = this.currentPageNumber <= this.defaultPageNumber ? this.defaultPageNumber : this.currentPageNumber -1;
-     this.paginateItems(prevPageNumber);
-  } 
-  
-  paginateItems(pageNumber: number) { 
-    console.log("---- paginateItems ----")
-    this.currentPageNumber = pageNumber;
-
-    this.itemsTempArray = this.itemsArray.slice((pageNumber -1) * this.defaultPageSize, pageNumber * this.defaultPageSize);
+  loadDefaultPageNavigation() {  
+    console.log("---- loadDefaultPageNavigation ----") 
+    const pageSize = Math.floor(this.itemsArray.length / this.defaultPageNavigationSize);
    
-    console.log(`itemsTempArray: ${this.itemsTempArray}`)
-
-    this.visiblePagination();
-
-    this.changeActivePagination();
-
-    console.log("---- / paginateItems ----")
-  }
-
-  changeActivePagination() { 
-    this.pagesTempArray = this.pagesTempArray.map((page, index) => page = {
-        active: this.currentPageNumber === page.number ? true : false,
-        number: page.number 
-    }); 
-  }
-
-  visiblePagination() {
-    console.log("---- visiblePagination ----")
-  
-    const currentPage = this.currentPageNumber -1; // 1
-    const currentValue = Math.ceil(this.defaultPageSize / 2); // 10 / 2 = 5
-
-    const start = currentPage <= currentValue ? currentPage : currentPage + currentValue;
-    const end = currentPage <= currentValue ?  this.defaultPageSize + currentPage : this.defaultPageSize + currentValue;
-
-    console.log(`start: ${start}`)
-    console.log(`end: ${end}`) 
-                                     
+    // Create default pages array
+    this.pageNavigationArray = new Array(pageSize).fill(0)
+    .map((page, index) => page = { active: (index +1 === this.defaultPageNumber), number : index +1 })
     
-  //  this.itemsTempArray = this.itemsArray.slice((pageNumber -1) * this.defaultPageSize, pageNumber * this.defaultPageSize);
-   const startTest = currentPage * this.defaultPageSize;
-   const endTest = currentPage * this.defaultPageSize;
-   
-
-
-    this.pagesTempArray = this.pagesArray.slice(start, end);
-
-    console.log("---- / visiblePagination ----")
+    // Slice pages array for navigation visibility 
+    this.pageNavigationSectionArray = this.changeNavigationSectionArray(this.defaultPageNumber -1, this.defaultPageNavigationSize);
+     
+    console.log("---- / loadDefaultPageNavigation ----")
+     
+    this.sliceItems(this.defaultPageNumber);
   }
   
-  private createPagination() {
-    console.log("---- createPages ----")
-    const activePageNumber = this.currentPageNumber;
-    const arraySize = Math.round(this.itemsArray.length / this.defaultPageSize);
- 
-    console.log(`arraySize: ${this.itemsTempArray}`)
+  changePageNavigation(pageNumber: number) {
+    console.log("---- changePageNavigation ----") 
+    this.activePageNumber = pageNumber;
 
-    this.pagesArray = new Array(arraySize).fill(0).map((page, index) => 
-      page = { active: (index +1 === activePageNumber), number : index +1 })
+    let start = 0,
+    end = this.defaultPageNavigationSize,
+    middle = Math.floor(this.defaultPageNavigationSize / 2);
+
+    if(this.activePageNumber > middle) {
+
+      start = this.activePageNumber - middle;  
+      end = start + this.defaultPageNavigationSize; 
+   
+      if (end > this.pageNavigationArray.length) {  
+          end = this.pageNavigationArray.length;  
+          start = this.pageNavigationArray.length - this.defaultPageNavigationSize;
+      }
+    } 
+    // new section of pages array
+    this.pageNavigationSectionArray = this.changeNavigationSectionArray(start, end); 
+    // Change active page
+    this.pageNavigationSectionArray = this.changeActivePage();
+
+    console.log("---- / changePageNavigation ----")
+
+    this.sliceItems(pageNumber)
+  }
+
+  changeActivePage(): Array<Page> {
+     return this.pageNavigationSectionArray.map((page, index) => page = {
+        active: this.activePageNumber === page.number ? true : false,
+        number: page.number
+     });
+  }
+
+  changeNavigationSectionArray(start: number, stop: number): Array<Page> {
+     return this.pageNavigationArray.slice(start, stop) 
+  }
   
-    console.log(`pagesArray: ${this.pagesArray}`)
-    console.log("---- / createPages ----")
+  sliceItems(pageNumber: number): void {
+    console.log("---- sliceItems ----")
+    this.itemsTempArray = this.itemsArray.slice((pageNumber -1) * this.defaultItemsPerPage, pageNumber * this.defaultItemsPerPage);
+    console.log("---- / sliceItems ----")
+  }
+  
+  previousPage(): void {
+    const prevPageNumber = this.activePageNumber <= this.defaultPageNumber ? this.defaultPageNumber : -- this.activePageNumber;
+
+    this.changePageNavigation(prevPageNumber);
   } 
 
-  fillItemsArray() {
+  nextPage(): void {
+    const nextPageNumber = this.activePageNumber >= this.pageNavigationArray.length ? this.pageNavigationArray.length : ++ this.activePageNumber;
+
+    this.changePageNavigation(nextPageNumber); 
+  }
+
+  firstPage(): void {
+    const firstPageNumber = this.defaultPageNumber;
+    
+    this.changePageNavigation(firstPageNumber);
+  }
+
+  lastPage(): void {
+    const lastPageNumber = this.pageNavigationArray.length;
+    
+    this.changePageNavigation(lastPageNumber);
+  }
+
+  fillItemsArray(): void {
     this.itemsArray = Array(250).fill(0).map((item, i) => ({
       id: (i +1), 
       name: `Item ${i +1}`
-    }));  
+    }));
   }
 }
