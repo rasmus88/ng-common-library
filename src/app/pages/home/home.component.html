@@ -193,7 +193,12 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
     <p class="card-text card-secondary">Beskrivning: Paginering till för att navigera ..</p>
     <div class="text-success">
        Output<hr>
-       <app-pagination-test></app-pagination-test>
+       <!-- Items -->
+       <div *ngFor="let item of pageOfItemsArray">
+         {{item.name}}
+       </div>
+       <!-- Pagination -->
+       <app-pagination-test [items]="itemsArray" (pageChange)="onPageChanged($event)"></app-pagination-test>
     </div>
   </div>
 </div>

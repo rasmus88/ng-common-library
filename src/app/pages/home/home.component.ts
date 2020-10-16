@@ -38,11 +38,14 @@ export class HomeComponent {
   }];
  
   messages: Array<any> = [];
-  subscription: Subscription;
+  subscription: Subscription; 
+  itemsArray: Array<any> = [...this.fillArray()];
+  pageOfItemsArray: Array<any>;
 
   constructor(public alertService: AlertService, public alertTestService: AlertNotificationService) { 
-
-  }
+     
+     console.log(this.itemsArray);
+  } 
  
   filterArray(value: any) {
     if(value == 'Rasmus') {
@@ -54,6 +57,22 @@ export class HomeComponent {
      if(item.firstName == 'Rasmus') {
        return true;
      }
+  }
+
+  onPageChanged(pageOfItems: Array<any>) {
+    console.log(this.itemsArray);
+
+    this.pageOfItemsArray = pageOfItems;
+
+    console.log(this.itemsArray);
+  }
+
+  fillArray(): Array<any> {
+    return Array(250).fill(0)
+                      .map((item, i) => ({
+                            id: (i +1), 
+                            name: `Item ${i +1}`
+                      }));
   }
 
   toggleHide() {
