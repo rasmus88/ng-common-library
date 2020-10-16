@@ -1,44 +1,59 @@
 .pagination-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-   // justify-content: space-between;
-    width: fit-content;
-    height: 100%;
-    border: 2px solid #ccc; 
- 
-    .page {
-        background-color: #f1f1f1;
-        margin: 10px;
-        padding: 15px;
-        font-size: 10;
-        cursor: pointer;
-      }
+    justify-content: center; 
+    height: 100%;  
+    background-color: black;
+    color: #6c757d;
+    font-family: inherit;
+    border-radius: .25rem;
 
-     .prev { 
-        @extend .page; 
-        flex-grow: 1;
-        font-size: 8px;
-     }
-     .next { 
-        @extend .page;
-        flex-grow: 1;
-        font-size: 8px; 
-     }
+    .first {
+       @extend .pageItem; 
+       flex-grow: 1;
+    }
 
-     .first {
-        @extend .page; 
-        flex-grow: 1;
-     }
-     .last {
-        @extend .page; 
-        flex-grow: 1;
-     }
+    .prev { 
+       @extend .pageItem; 
+       flex-grow: 1;
+       font-size: 8px;
+    }
 
-     .active {
-         font-weight: bold;
-     }
+    .pageItem { 
+       flex-grow: 1;
+       font-size: 10;
+       cursor: pointer;
+       text-align: center;
+       padding: .5rem .75rem;
+       background-color: #fff; 
+       border: 1px solid #dee2e6;
+
+       &:hover {
+          background-color: red;
+       }
+    }
+
+    .next { 
+       @extend .pageItem; 
+       flex-grow: 1;
+       font-size: 8px; 
+    } 
+      
+    .last {
+       @extend .pageItem; 
+       flex-grow: 1;
+    }
+
+    .disabled {
+       cursor: not-allowed !important;  
+    }
+
+    .active {
+       font-weight: bold;
+    } 
 }
-
+ 
 .properties {
    margin: 10px 0px 5px 0px;
 }

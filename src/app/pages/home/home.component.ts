@@ -64,7 +64,7 @@ export class HomeComponent {
   }
 
   fillArray(): Array<any> {
-    return Array(150).fill(0)
+    return Array(250).fill(0)
                       .map((item, i) => ({
                             id: (i +1), 
                             name: `Item ${i +1}`

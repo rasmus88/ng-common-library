@@ -23,9 +23,9 @@ export class PaginationTestComponent implements OnInit {
   @Input() itemsPerPage: number = 10; 
   // Pages props
   private pagesOfItemsSize: number = 10;
-  private pagesOfItems: Array<Page>;
+  pagesOfItems: Array<Page>;
   pagesOfItemsSliced: Array<Page>; 
-  private defaultPageNumber: number = 1;
+  defaultPageNumber: number = 1;
   activePageNumber: number = 1;
   
   constructor() { }
@@ -112,5 +112,11 @@ export class PaginationTestComponent implements OnInit {
     const lastPageNumber = this.pagesOfItems.length;
     
     this.changePageNavigation(lastPageNumber);
+  }
+
+  test(): boolean {
+    const last = this.defaultPageNumber === this.defaultPageNumber;
+
+    return last;
   }
 }
