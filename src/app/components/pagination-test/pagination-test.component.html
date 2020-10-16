@@ -1,10 +1,3 @@
-<!-- Content / items  
-<div *ngFor="let item of itemsTempArray">
-   <div>{{ item.name }}</div>
-</div>
--->
-
-<!-- Pagination -->
 <hr>
 <div>currentPage: {{activePageNumber}}</div>
 <hr>
@@ -13,10 +6,10 @@
   <div class="first" (click)="firstPage()">First</div>
    <div class="prev" (click)="previousPage()">< Prev</div>
 
-    <ng-container *ngFor="let page of pageNavigationSectionArray">
-     <div class="page" [ngClass]="{'active': page.active}" (click)="changePageNavigation(page.number)">
-      {{ page.number }}
-    </div>
+    <ng-container *ngFor="let page of pagesOfItemsSliced">
+      <div class="page" [ngClass]="{'active': page.active}" (click)="changePageNavigation(page.number)">
+       {{ page.number }}
+      </div>
     </ng-container>
 
    <div class="next" (click)="nextPage()">Next ></div>

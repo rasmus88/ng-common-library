@@ -59,16 +59,12 @@ export class HomeComponent {
      }
   }
 
-  onPageChanged(pageOfItems: Array<any>) {
-    console.log(this.itemsArray);
-
-    this.pageOfItemsArray = pageOfItems;
-
-    console.log(this.itemsArray);
+  onPageChanged(pageOfItems: Array<any>) { 
+    this.pageOfItemsArray = pageOfItems; 
   }
 
   fillArray(): Array<any> {
-    return Array(250).fill(0)
+    return Array(150).fill(0)
                       .map((item, i) => ({
                             id: (i +1), 
                             name: `Item ${i +1}`
