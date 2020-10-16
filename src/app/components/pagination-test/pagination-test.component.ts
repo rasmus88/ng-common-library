@@ -17,6 +17,7 @@ export class PaginationTestComponent implements OnInit {
   
   // custom
   @Input() loader: any;
+  @Input() numberOfPagesView: boolean = false;
   
   // Items props 
   @Input() itemsPerPage: number = 10; 
@@ -38,7 +39,7 @@ export class PaginationTestComponent implements OnInit {
     // Create pages array
     this.pagesOfItems = new Array(pageSize).fill(0)
     .map((page, index) => page = { active: (index +1 === this.defaultPageNumber), number : index +1 })
-    
+     
     // Slice pages array for navigation visibility 
     this.pagesOfItemsSliced = this.slicePagesOfItems(this.pagesOfItems, this.defaultPageNumber -1, this.pagesOfItemsSize);
      

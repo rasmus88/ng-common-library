@@ -1,6 +1,6 @@
-<hr>
-<div>currentPage: {{activePageNumber}}</div>
-<hr>
+<div *ngIf="numberOfPagesView" class="properties">
+ <p>Sida: {{ activePageNumber }} av {{ pagesOfItems.length }}</p>
+</div>
 
 <div class="pagination-container">
   <div class="first" (click)="firstPage()">First</div>

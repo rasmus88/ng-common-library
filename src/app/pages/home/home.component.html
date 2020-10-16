@@ -199,6 +199,7 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
        </div>
        <!-- Pagination -->
        <app-pagination [items]="itemsArray"
+                       [numberOfPagesView]="true"
                        [itemsPerPage]="10"
                        (pageChange)="onPageChanged($event)"></app-pagination>
     </div>
