@@ -3,12 +3,13 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center; 
-    height: 100%;  
-    background-color: black;
-    color: #6c757d;
-    font-family: inherit;
+    height: 100%;
     border-radius: .25rem;
     overflow: hidden;
+    background-color: #000000;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 
     .first {
        @extend .pageItem; 
@@ -32,9 +33,16 @@
 
        &:hover {
          background-color: #e9ecef;
-         border-color: #dee2e6; 
+         border-color: #dee2e6;
+         color: inherit;
        }
     }
+
+    .active {
+      background-color: #007bff;
+      border-color: #007bff;
+      color: #fff;
+   } 
 
     .next { 
        @extend .pageItem; 
@@ -50,12 +58,6 @@
     .disabled {
        cursor: not-allowed !important;  
     }
-
-    .active {
-       background-color: #007bff;
-       border-color: #007bff;
-       color: #fff;
-    } 
 }
  
 .properties {
