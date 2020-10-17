@@ -48,8 +48,6 @@ export class PaginationTestComponent implements OnInit {
   }
    
   changePageNavigation(pageNumber: number) {
-    console.log("---- changePageNavigation ----") 
-     
     this.activePageNumber = pageNumber;
 
     let start = 0,
