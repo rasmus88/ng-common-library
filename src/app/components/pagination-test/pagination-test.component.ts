@@ -66,20 +66,19 @@ export class PaginationTestComponent implements OnInit {
           start = this.pagesOfItems.length - this.pagesOfItemsSize;
       }
     } 
-    // new slice of pages array
-    this.pagesOfItemsSliced = this.slicePagesOfItems(this.pagesOfItems, start, end); 
-    // Change active page
-    this.pagesOfItemsSliced = this.changeActivePage(this.pagesOfItemsSliced);
- 
+    // new slice of pages array & change active page
+    this.pagesOfItemsSliced = this.slicePagesOfItems(this.pagesOfItems, start, end)
+                              .map((page, index) => this.changeActivePage(page));
+   
     const currentVisibleItems = this.sliceItems(this.items, pageNumber, pageNumber); 
     this.pageChange.emit(currentVisibleItems)
   }
 
-  changeActivePage(arr: Array<Page>): Array<Page> {
-     return arr.map((page, index) => page = {
-        active: this.activePageNumber === page.number ? true : false,
-        number: page.number
-     });
+  changeActivePage(page: Page): Page {
+    return page = {
+      active: this.activePageNumber === page.number ? true : false,
+      number: page.number
+    }
   }
 
   slicePagesOfItems(arr: Array<Page>, start: number, end: number): Array<Page> {
