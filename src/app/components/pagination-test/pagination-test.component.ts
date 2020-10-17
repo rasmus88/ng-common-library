@@ -58,7 +58,7 @@ export class PaginationTestComponent implements OnInit {
 
     if(this.activePageNumber > middle) {
 
-      start = this.activePageNumber - middle; 
+      start = this.activePageNumber - middle;
       end = start + this.pagesOfItemsSize; 
    
       if (end > this.pagesOfItems.length) {  
@@ -112,11 +112,5 @@ export class PaginationTestComponent implements OnInit {
     const lastPageNumber = this.pagesOfItems.length;
     
     this.changePageNavigation(lastPageNumber);
-  }
-
-  test(): boolean {
-    const last = this.defaultPageNumber === this.defaultPageNumber;
-
-    return last;
   }
 }
