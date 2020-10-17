@@ -8,6 +8,7 @@
     color: #6c757d;
     font-family: inherit;
     border-radius: .25rem;
+    overflow: hidden;
 
     .first {
        @extend .pageItem; 
@@ -30,7 +31,8 @@
        border: 1px solid #dee2e6;
 
        &:hover {
-          background-color: red;
+         background-color: #e9ecef;
+         border-color: #dee2e6; 
        }
     }
 
@@ -50,7 +52,9 @@
     }
 
     .active {
-       font-weight: bold;
+       background-color: #007bff;
+       border-color: #007bff;
+       color: #fff;
     } 
 }
  

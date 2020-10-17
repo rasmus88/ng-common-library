@@ -4,7 +4,7 @@
 
 <div class="pagination-container"> 
   <div class="first" [class.disabled]="activePageNumber === defaultPageNumber" (click)="firstPage()">First</div>
-   <div class="prev" [class.disabled]="activePageNumber === defaultPageNumber" (click)="previousPage()">< Prev</div>
+   <div class="prev" [class.disabled]="activePageNumber === defaultPageNumber" (click)="previousPage()">&laquo; Prev</div>
 
     <ng-container *ngFor="let page of pagesOfItemsSliced">
       <div class="pageItem" [ngClass]="{'active': page.active}" (click)="changePageNavigation(page.number)">
@@ -12,6 +12,6 @@
       </div>
     </ng-container>
 
-   <div class="next" [class.disabled]="activePageNumber === pagesOfItems.length" (click)="nextPage()">Next ></div>
+   <div class="next" [class.disabled]="activePageNumber === pagesOfItems.length" (click)="nextPage()">Next &raquo;</div>
   <div class="last" [class.disabled]="activePageNumber === pagesOfItems.length" (click)="lastPage()">Last</div>
 </div>
