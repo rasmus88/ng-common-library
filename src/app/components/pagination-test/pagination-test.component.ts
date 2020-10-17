@@ -65,7 +65,7 @@ export class PaginationTestComponent implements OnInit {
           end = this.pagesOfItems.length;  
           start = this.pagesOfItems.length - this.pagesOfItemsSize;
       }
-    } 
+    }
     // new slice of pages array & change active page
     this.pagesOfItemsSliced = this.slicePagesOfItems(this.pagesOfItems, start, end)
                               .map((page, index) => this.changeActivePage(page));
@@ -81,12 +81,12 @@ export class PaginationTestComponent implements OnInit {
     }
   }
 
-  slicePagesOfItems(arr: Array<Page>, start: number, end: number): Array<Page> {
-     return arr.slice(start, end)
+  slicePagesOfItems(pagesOfItems: Array<Page>, start: number, end: number): Array<Page> {
+     return pagesOfItems.slice(start, end)
   }
   
-  sliceItems(arr: Array<Page>, start: number, end: number): Array<Page> { 
-    return arr.slice((start -1) * this.itemsPerPage, end * this.itemsPerPage); 
+  sliceItems(items: Array<Page>, start: number, end: number): Array<Page> { 
+    return items.slice((start -1) * this.itemsPerPage, end * this.itemsPerPage); 
   }
   
   previousPage(): void {
