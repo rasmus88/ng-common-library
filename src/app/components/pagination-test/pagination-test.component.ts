@@ -16,23 +16,22 @@ export class PaginationTestComponent implements OnInit {
   @Output() pageChange: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
   
   // custom
-  @Input() loader: any;
   @Input() numberOfPagesView: boolean = false;
   
-  // Items props 
+  // items props 
   @Input() itemsPerPage: number = 10; 
-  // Pages props
+  // pages props
   private pagesOfItemsSize: number = 10;
   pagesOfItems: Array<Page>;
   pagesOfItemsSliced: Array<Page>; 
   defaultPageNumber: number = 1;
-  activePageNumber: number = 1;
-  
-  constructor() { }
+  activePageNumber: number = 1; 
+
+  constructor() { } 
 
   ngOnInit() { 
-    this.loadPageNavigation();  
-  } 
+    this.loadPageNavigation();   
+  }
 
   loadPageNavigation() {    
     const pageSize = Math.ceil(this.items.length / this.itemsPerPage);
