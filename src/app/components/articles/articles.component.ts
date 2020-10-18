@@ -13,7 +13,7 @@ export class ArticlesComponent {
 
   constructor() { }
 
-  ngOnInit() {
-     console.log(this.dataSource);
+  ngOnInit() { 
+    
   }
 }

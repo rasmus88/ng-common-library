@@ -1,0 +1,30 @@
+.splitterContainer {
+    display: grid;  
+    grid-template-areas: 
+      "leftArea handleArea rightArea"
+      "bottomArea bottomArea bottomArea";
+     grid-template-columns: 49.5% 1% 49.5%;
+     height: 100%;
+ 
+     .left {
+        grid-area: leftArea; 
+        height: inherit;
+        overflow-y: hidden;
+     }
+ 
+     .handle {
+         grid-area: handleArea; 
+         height: inherit;
+         cursor: col-resize;    
+     }
+ 
+     .right { 
+         grid-area: rightArea;  
+         height: inherit;
+     }
+ 
+     .bottom {  
+         grid-area: bottomArea;
+         height: inherit;
+     }
+  }

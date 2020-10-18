@@ -13,7 +13,7 @@ export class PageCardedComponent {
   @ContentChild('content', { static: true }) contentTemplate: TemplateRef<any>;
 
   ngOnInit() { 
-    console.log(this.searchTemplate);
+   
   }
 
   ngAfterViewInit() {  
