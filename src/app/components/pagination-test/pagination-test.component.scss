@@ -31,11 +31,12 @@
        background-color: #fff; 
        border: 1px solid #dee2e6;
 
-       &:hover {
+       &:hover:not(.active) {
          background-color: #e9ecef;
          border-color: #dee2e6;
          color: inherit;
        }
+
     }
 
     .active {
