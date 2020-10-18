@@ -18,8 +18,7 @@
 
     .prev { 
        @extend .pageItem; 
-       flex-grow: 1;
-       font-size: 8px;
+       flex-grow: 1; 
     }
 
     .pageItem { 
@@ -30,6 +29,14 @@
        padding: .5rem .75rem;
        background-color: #fff; 
        border: 1px solid #dee2e6;
+
+       -webkit-touch-callout: none; /* iOS Safari */
+       -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+           -ms-user-select: none; /* Internet Explorer/Edge */
+               user-select: none; /* Non-prefixed version, currently
+                                     supported by Chrome, Edge, Opera and Firefox */
 
        &:hover:not(.active) {
          background-color: #e9ecef;
@@ -43,12 +50,11 @@
       background-color: #007bff;
       border-color: #007bff;
       color: #fff;
-   } 
+    }
 
     .next { 
        @extend .pageItem; 
-       flex-grow: 1;
-       font-size: 8px; 
+       flex-grow: 1; 
     } 
       
     .last {
@@ -58,7 +64,7 @@
 
     .disabled {
        cursor: not-allowed !important;  
-    }
+    } 
 }
  
 .properties {
