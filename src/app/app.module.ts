@@ -29,9 +29,11 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { SplitTestComponent } from './components/split-test/split-test.component';
 // Alert notification component
 import { AlertNotificationComponent } from './components/alert-notification/alert-notification.component'; 
+// Pagination test component
+import { PaginationTestComponent } from './components/pagination-test/pagination-test.component';
 
 // Cummon UI Module
-import { CommonUiLibraryModule } from 'common-ui-library';
+import { CommonUiLibraryModule } from 'common-ui-library'; 
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { CommonUiLibraryModule } from 'common-ui-library';
     SplitTestComponent,
     AlertNotificationComponent,
     HomeComponent,
-    TestComponent
+    TestComponent,
+    PaginationTestComponent
   ],
   imports: [
     BrowserModule,

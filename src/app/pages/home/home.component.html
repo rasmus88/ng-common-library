@@ -176,7 +176,7 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
       <div class="form-group mt-2">
         <div class="form-check">
           <input type="checkbox" name="keepAfterRouteChange" id="keepAfterRouteChange" [(ngModel)]="options.keepAfterRouteChange" class="form-check-input">
-          <label for="keepAfterRouteChange">Option: keepAfterRouteChange</label>
+          <label for="keepAfterRouteChange">option: keepAfterRouteChange</label>
         </div>
         <div class="form-check">
           <input type="checkbox" name="autoClose" id="autoClose" [(ngModel)]="options.autoClose" class="form-check-input">
@@ -187,7 +187,26 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
   </div>  
 </div>
 
-<div class="container">
+<div class="card mt-2">
+  <div class="card-body">
+    <h3 class="card-title text-info">Pagination component</h3>
+    <p class="card-text card-secondary">Beskrivning: Paginering till för att navigera ..</p>
+    <div class="text-success">
+       Output<hr>
+       <!-- Items -->
+       <div *ngFor="let item of pageOfItemsArray">
+         {{item.name}}
+       </div>
+       <!-- Pagination -->
+       <pagination [items]="itemsArray"
+                   [numberOfPagesView]="true"
+                   [itemsPerPage]="10"   
+                   (pageChange)="onPageChanged($event)"></pagination>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-2">
 <div class="row">
  <h1>Testing reusable components</h1>
 </div>
