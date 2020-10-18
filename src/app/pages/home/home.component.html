@@ -176,11 +176,11 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
       <div class="form-group mt-2">
         <div class="form-check">
           <input type="checkbox" name="keepAfterRouteChange" id="keepAfterRouteChange" [(ngModel)]="options.keepAfterRouteChange" class="form-check-input">
-          <label for="keepAfterRouteChange">option: keepAfterRouteChange</label>
+          <label for="keepAfterRouteChange">option: ta inte bort efter route ändring</label>
         </div>
         <div class="form-check">
           <input type="checkbox" name="autoClose" id="autoClose" [(ngModel)]="options.autoClose" class="form-check-input">
-          <label for="autoClose">option: autoclose</label>
+          <label for="autoClose">option: auto stäng</label>
         </div>
       </div>
     </div>
@@ -205,66 +205,6 @@ Komponenten tar emot två stycken ng templates #customModalTemplate och #customB
     </div>
   </div>
 </div>
-
-<div class="container mt-2">
-<div class="row">
- <h1>Testing reusable components</h1>
 </div>
-<div class="card mt-2">
-<div class="card-body">
-  <div class="card-title">
-    <h3>Reusable component</h3>
-  </div>
-  
-  <articles [dataSource]="personArray"></articles>
-
+</div> 
 </div>
-</div>
-</div>   
-
-<div class="container mt-2"> 
-<card-container>
-<ng-container class="title">HEADING</ng-container>
-<div class="text">text..</div>
-</card-container>
-</div>
-
-<!--  
-<mat-expansion-panel expanded>
-<mat-expansion-panel-header>
-  <mat-panel-title>
-    TITLE
-  </mat-panel-title>
-  <mat-panel-description>
-    DESCRIPTION
-  </mat-panel-description>
-</mat-expansion-panel-header>
-<ng-container *ngTemplateOutlet="matExpansionPanelContent"></ng-container>
-
-<ng-template #matExpansionPanelContent>               
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <p>content content content content content content content content content content content content content content content content content</p>
-      </div>
-      <div class="col">
-        <p>asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji asdijas jiasdjaijs isajdis aji </p>
-      </div>
-    </div>
-  </div>
-</ng-template>
-</mat-expansion-panel>
--->
-
-
-
-<!--  
-<footer class="container fixed-bottom">
-<hr>
-<p>Angular UI bibliotek</p>
-</footer>
--->
-   </div>
- </div> 
-</div>
-  
