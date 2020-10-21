@@ -21,7 +21,7 @@ export class HomeComponent {
   alertSubscription: Subscription;
   title = 'CommonUI-App';
   testar: string = "Rasmus";
-  defaultPipeTest: null = null; 
+  nullVar = null;
   userInput: string = ""; 
   hide: boolean = false;
   debounceVar: any = "test";

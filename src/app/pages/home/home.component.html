@@ -10,14 +10,14 @@
               <p class="card-text text-secondary">Beskrivning: För att ersätta en bokstav etc.</p>
               <pre>
                <code>
-                &lt;p&gt;&lt;b&gt; <code>{{</code> &#39;Adam&#39; | replaceByPipe: &#39;A&#39;: &#39; &#39; <code>}}</code> &lt;/b&gt;&lt;/p&gt;
+                &lt;p&gt;&lt;b&gt; <code>{{</code> &#39;Adam&#39; | replaceByPipe: &#39;A&#39;: &#39; &#39; <code>}}</code>&lt;/b&gt;&lt;/p&gt;
                </code>
               </pre>
               <div class="text-success">
                  Output
               <hr>
               <p><b>{{ 'Adam' | replaceByPipe: 'A': ' ' }}</b></p>
-            </div> 
+            </div>
          </div>
         </div>
         <div class="card mt-2">
@@ -25,7 +25,11 @@
               <h3 class="card-title text-info">callbackFilter</h3>
               <p class="card-text text-secondary">Beskrivning: För att filtrera värden i en iteration etc.</p>
               <pre>
-               <code>*ngFor="let person of personArray | callbackFilter: filterObj</code>
+               <code>
+                  &lt;li *ngFor=&quot;let person of personArray | callbackFilter: filterObj&quot;&gt;
+                   &lt;b&gt;<code>{{</code> person.firstName <code>}}</code>&lt;/b&gt;
+                  &lt;/li&gt;
+               </code>
               </pre>
               <div class="text-success">
                  Output
@@ -41,12 +45,14 @@
               <h3 class="card-title text-info">defaultPipe</h3>
               <p class="card-text text-secondary">Beskrivning: För att visa ett default värde om inget värde finns.</p>
               <pre> 
-               <code>{{ myVar | defaultPipe: 'default value'</code> }}
+               <code>
+                  &lt;p&gt;&lt;b&gt;<code>{{</code> nullVar | defaultPipe: &#39;default value&#39; <code>}}</code>&lt;/b&gt;&lt;/p&gt;
+               </code>
               </pre>
               <div class="text-success">
                  Output
                  <hr>
-                 <p><b>{{ defaultPipeTest | defaultPipe: 'default value' }}</b></p>
+                 <p><b>{{ nullVar | defaultPipe: 'default value' }}</b></p>
               </div>
            </div>
         </div>
@@ -54,10 +60,10 @@
            <div class="card-body">
               <h3 class="card-title text-info">debounceInputPipe</h3>
               <p class="card-text text-secondary">Beskrivning: Fördröjning x antal ms sekunder (default 500) innan nytt värde visas.</p>
-              <pre>
-                {{ 
-                 <code>userInput | debounceInputPipe: 1200 </code>
-               }}
+              <pre> 
+                 <code>
+                  &lt;p&gt;&lt;b&gt;<code>{{</code> userInput | debounceInputPipe: 1200 <code>}}</code>&lt;/b&gt;&lt;/p&gt;
+                 </code> 
               </pre>
               <div class="text-success">
                  Output
@@ -75,16 +81,44 @@
         <div class="card mt-2">
            <div class="card-body">
               <h3 class="card-title text-info">read-more</h3>
-              <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera eller dölja texten. <br> 
+              <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera och därefter dölja texten. <br><br/>
                  Det finns en default vy och en custom vy man kan lägga till.
               </p>
-              <pre> &lt;read-more&gt;text&lt;/read-more&gt;</pre>
-              För custom vyn så ger man komponenten en ng-template och namnge den som #customButtonTemplate
+
+            <p><b>Utan template</b></p>
+            <pre>
+               <code>
+                  &lt;read-more&gt;Innehåll här..&lt;/read-more&gt;
+               </code>
+            </pre>
+
+            <p><b>Med en ng-template #customButtonTemplate</b></p>
+            För custom vyn så deklarerar användaren en ng-template och namnger den som #customButtonTemplate
+            <br /> <br />
+              <pre>
+                 <code>
+                  &lt;read-more&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                  &lt;ng-template #customButtonTemplate let-isCollapsed=&quot;isCollapsed&quot;&gt;
+                     &lt;button class=&quot;btn btn-primary&quot;&gt;
+                     &lt;span *ngIf=&quot;isCollapsed&quot;&gt;Visa mer&lt;/span&gt;
+                     &lt;span *ngIf=&quot;!isCollapsed&quot;&gt;Dölj&lt;/span&gt;
+                     &lt;/button&gt;
+                   &lt;/ng-template&gt;
+                  &lt;/read-more&gt;
+                 </code>
+              </pre>
               <div class="text-success">
                  Output
                  <hr>
+                 <p><b>Utan template</b></p>
                  <read-more>
-                    Testar test test test asdasd asdsad sad sadasd sadsad oaskodoadskodsao koaskdoosaokadso sakodkosakdko kaosd
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                 </read-more>
+
+                 <p><b>Med en ng-template #customButtonTemplate</b></p>
+                 <read-more>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
                     <ng-template #customButtonTemplate let-isCollapsed="isCollapsed">
                        <button class="btn btn-primary">
                        <span *ngIf="isCollapsed">Visa mer</span>
@@ -98,20 +132,73 @@
         <div class="card mt-2">
            <div class="card-body">
               <h3 class="card-title text-info">read-more-modal</h3>
-              <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera eller dölja texten med en modal dialog. <br> 
-                 Komponenten tar emot två stycken ng templates #customModalTemplate och #customButtonTemplate
+              <p class="card-text text-secondary">Beskrivning: Lägg till i vyn för att dölja långa texter där användaren kan välja att expandera och därefter dölja texten. Texten visas i en dialog. <br>
+               <br />
+                 Komponenten kan konsumera två stycken custom templates #customModalTemplate och #customButtonTemplate
               </p>
-              <pre> &lt;read-more-modal&gt;text&lt;/read-more-modal&gt;</pre>
+              <p><b>Utan template</b></p>
+              <pre>
+                 <code>
+                  &lt;read-more-modal&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                 &lt;/read-more-modal&gt;
+                 </code>
+              </pre>
+              <p><b>Med en ng-template #customModalTemplate</b></p>
+              <pre>
+                 <code>
+                 &lt;read-more-modal&gt;
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                  &lt;ng-template #customModalTemplate&gt;
+                     &lt;div mat-dialog-content [hidden]=&quot;hide&quot;&gt;
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                     &lt;/div&gt; 
+                     &lt;div class=&quot;float-left&quot;&gt;
+                        &lt;button class=&quot;btn btn-success&quot; (click)=&quot;toggleHide()&quot;&gt;Testar med en knapp!&lt;/button&gt;
+                     &lt;/div&gt;
+                     &lt;div class=&quot;float-right&quot;&gt;
+                        &lt;button class=&quot;btn btn-danger&quot;&gt;En till knapp..&lt;/button&gt;
+                     &lt;/div&gt;
+                   &lt;/ng-template&gt;
+                  &lt;/read-more-modal&gt;
+                 </code>
+              </pre>
+              <p><b>Med båda ng-template #customModalTemplate och #customButtonTemplate</b></p>
+              <pre>
+                 <code>
+                  &lt;read-more-modal&gt;
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                    &lt;ng-template #customModalTemplate&gt;
+                       &lt;div mat-dialog-content [hidden]=&quot;hide&quot;&gt;
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                       &lt;/div&gt;
+                       &lt;div class=&quot;float-left&quot;&gt;
+                          &lt;button class=&quot;btn btn-success&quot; (click)=&quot;toggleHide()&quot;&gt;Testar med en knapp!&lt;/button&gt;
+                       &lt;/div&gt;
+                       &lt;div class=&quot;float-right&quot;&gt;
+                          &lt;button class=&quot;btn btn-danger&quot;&gt;En till knapp..&lt;/button&gt;
+                       &lt;/div&gt;
+                    &lt;/ng-template&gt;
+                    &lt;ng-template #customButtonTemplate&gt;
+                       &lt;button class=&quot;btn btn-success&quot;&gt;Show more&lt;/button&gt;
+                    &lt;/ng-template&gt;
+                 &lt;/read-more-modal&gt;
+                 </code>
+              </pre>
               <div class="text-success">
                  Output
                  <hr>
+                 <p><b>Utan template</b></p>
                  <read-more-modal>
-                    Test testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                 </read-more-modal>
+                 <p><b>Med en ng-template #customModalTemplate</b></p>
+                 <read-more-modal>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
                     <ng-template #customModalTemplate>
                        <div mat-dialog-content [hidden]="hide">
-                          Test testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa oskadkosakd okasTest testar testoksa
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
                        </div>
-                       <h1>HEJ</h1>
                        <div class="float-left">
                           <button class="btn btn-success" (click)="toggleHide()">Testar med en knapp!</button>
                        </div>
@@ -120,18 +207,128 @@
                        </div>
                     </ng-template>
                  </read-more-modal>
+                 <p><b>Med båda ng-template #customModalTemplate och #customButtonTemplate</b></p>
+                 <read-more-modal>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                    <ng-template #customModalTemplate>
+                       <div mat-dialog-content [hidden]="hide">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum. Ut metus neque, imperdiet eget luctus vitae, rutrum sit amet justo. Maecenas elementum tortor id odio blandit tincidunt. Pellentesque volutpat eros non diam molestie, quis vulputate risus efficitur. Vestibulum accumsan viverra scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vel iaculis tellus. Proin sagittis vehicula faucibus. Donec et mi dapibus, tristique mauris nec, vulputate sem.
+                       </div>
+                       <div class="float-left">
+                          <button class="btn btn-success" (click)="toggleHide()">Testar med en knapp!</button>
+                       </div>
+                       <div class="float-right">
+                          <button class="btn btn-danger">En till knapp..</button>
+                       </div>
+                    </ng-template>
+                    <ng-template #customButtonTemplate>
+                       <button class="btn btn-success">Show more</button>
+                    </ng-template>
+                 </read-more-modal>
               </div>
            </div>
         </div>
         <div class="card mt-2">
            <div class="card-body">
               <h3 class="card-title text-info">Resizable/dragable splitter component</h3>
-              <p class="card-text text-secondary">Beskrivning: Används till för att separera och vi innehåll. <br> 
-                 Komponenten tar emot tre stycken ng templates, inputs: 'left' 'right' 'bottom'
+              <p class="card-text text-secondary">Beskrivning: Används till för att separera HTML element med innehåll. Komponenten delar upp och gör den dragbar för användaren, den är även responsiv. Kan användas med syfte för layout/design eller för textinnehåll/artiklar.<br />
+              <br /> 
+              Komponenten kan konsumera från två till fyra stycken ng templates (4:e 'bottom' är valfri), inputs: 'left', 'handler', 'right', 'bottom'
               </p>
+              <p><b>Utan custom handler</b></p>
+              <pre>
+                 <code>
+                  &lt;resizable-splitter [left]=&quot;left&quot; [right]=&quot;right&quot; [bottom]=&quot;bottom&quot;&gt;&lt;/resizable-splitter&gt;
+                  &lt;ng-template #left&gt;
+                     &lt;div class=&quot;card h-100&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Left container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;innehåll... ijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidaoidjsaoijijsaoidaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijoijijsaoidjsaoijijsaoidjs&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #right&gt;
+                     &lt;div class=&quot;card h-100&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Right container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;inasd saidjsadi oiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijijsaoidjsaoij ijsaoidjsaoijijsaoidjsaoij&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #bottom&gt;
+                     &lt;div class=&quot;card mt-1&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Bottom container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;innehåll...&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                 </code>
+              </pre>
+              <p><b>Med custom handler</b></p>
+              <pre>
+                 <code>
+                  &lt;resizable-splitter [left]=&quot;left&quot; [handler]=&quot;handler&quot; [right]=&quot;right&quot; [bottom]=&quot;bottom&quot;&gt;&lt;/resizable-splitter&gt;
+                  &lt;ng-template #left&gt;
+                     &lt;div class=&quot;card h-100&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Left container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;innehåll... ijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidaoidjsaoijijsaoidaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijoijijsaoidjsaoijijsaoidjs&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #handler&gt;
+                     &lt;div class=&quot;handle-area&quot;&gt;&lt;/div&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #right&gt;
+                     &lt;div class=&quot;card h-100&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Right container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;inasd saidjsadi oiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijijsaoidjsaoij ijsaoidjsaoijijsaoidjsaoij&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                  &lt;ng-template #bottom&gt;
+                     &lt;div class=&quot;card mt-1&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                           &lt;h3 clsas=&quot;card-title text-info&quot;&gt;Bottom container&lt;/h3&gt;
+                           &lt;p class=&quot;card-text text-secondary&quot;&gt;innehåll...&lt;/p&gt;
+                        &lt;/div&gt;
+                     &lt;/div&gt;
+                  &lt;/ng-template&gt;
+                 </code>
+              </pre>
               <div class="text-success">
                  Output
                  <hr>
+                 <p><b>Utan custom handler</b></p>
+                 <resizable-splitter [left]="left" [right]="right" [bottom]="bottom"></resizable-splitter>
+                 <ng-template #left>
+                    <div class="card h-100">
+                       <div class="card-body">
+                          <h3 clsas="card-title text-info">Left container</h3>
+                          <p class="card-text text-secondary">innehåll... ijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidaoidjsaoijijsaoidaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijijsaoidjsaoijoijijsaoidjsaoijijsaoidjs</p>
+                       </div>
+                    </div>
+                 </ng-template>
+                 <ng-template #right>
+                    <div class="card h-100">
+                       <div class="card-body">
+                          <h3 clsas="card-title text-info">Right container</h3>
+                          <p class="card-text text-secondary">inasd saidjsadi oiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijoiasjdoiasj ijsaoidjsaoijijsaoidjsaoij ijsaoidjsaoijijsaoidjsaoij</p>
+                       </div>
+                    </div>
+                 </ng-template>
+                 <ng-template #bottom>
+                    <div class="card mt-1">
+                       <div class="card-body">
+                          <h3 clsas="card-title text-info">Bottom container</h3>
+                          <p class="card-text text-secondary">innehåll...</p>
+                       </div>
+                    </div>
+                 </ng-template>
+                 <br />
+                 <p><b>Med custom handler</b></p>
                  <resizable-splitter [left]="left" [handler]="handler" [right]="right" [bottom]="bottom"></resizable-splitter>
                  <ng-template #left>
                     <div class="card h-100">
