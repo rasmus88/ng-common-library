@@ -21,7 +21,7 @@ export class HomeComponent {
   alertSubscription: Subscription;
   title = 'CommonUI-App';
   testar: string = "Rasmus";
-  defaultPipeTest: null = null; 
+  nullVar = null;
   userInput: string = ""; 
   hide: boolean = false;
   debounceVar: any = "test";
@@ -40,6 +40,7 @@ export class HomeComponent {
   messages: Array<any> = [];
   subscription: Subscription; 
   itemsArray: Array<any> = [...this.fillArray()];
+  pageOfItemsArrayFirst: Array<any>;
   pageOfItemsArray: Array<any>;
 
   constructor(public alertService: AlertService, public alertTestService: AlertNotificationService) { 
@@ -57,6 +58,10 @@ export class HomeComponent {
      if(item.firstName == 'Rasmus') {
        return true;
      }
+  }
+ 
+  onPageChangedFirst(pageOfItems: Array<any>) {
+    this.pageOfItemsArrayFirst = pageOfItems;
   }
 
   onPageChanged(pageOfItems: Array<any>) { 
