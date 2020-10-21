@@ -10,6 +10,8 @@ For usage and read-me run ng s in project root dir.
 
 ## Install
 
+To use the library do the following
+
 ```bash
 $ npm install 'name'
 ```
