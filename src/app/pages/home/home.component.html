@@ -363,7 +363,16 @@
         <div class="card mt-2">
            <div class="card-body">
               <h3 class="card-title text-info">Alert component</h3>
-              <p class="card-text text-secondary">Beskrivning: Används till för att lägga till meddelanden till användaren. <br>test</p>
+              <p class="card-text text-secondary">Beskrivning: Skapa och visa meddelanden. Till för flera användningsområden exempelvis visa/tydliggöra viktiga meddelanden för användare.
+              <p><b>Med alla varningstyper</b></p>
+              <pre>
+                 <code>
+                  &lt;button class=&quot;btn btn-success&quot; (click)=&quot;alertService.success(&#39;Varningstyp: Success - meddelande..&#39;, this.options)&quot;&gt;Test success&lt;/button&gt; 
+                  &lt;button class=&quot;btn btn-danger ml-1&quot; (click)=&quot;alertService.error(&#39;Varningstyp: Error - meddelande..&#39;, this.options)&quot;&gt;Error&lt;/button&gt;
+                  &lt;button class=&quot;btn btn-warning ml-1&quot; (click)=&quot;alertService.warning(&#39;Varningstyp: Warning - meddelande..&#39;, this.options)&quot;&gt;Warning&lt;/button&gt;
+                  &lt;button class=&quot;btn btn-info ml-1&quot; (click)=&quot;alertService.info(&#39;Varningstyp: Info - meddelande..&#39;, this.options)&quot;&gt;Info&lt;/button&gt;
+                 </code>
+              </pre>
               <div class="text-success">
                  Output
                  <hr>
@@ -387,19 +396,45 @@
         <div class="card mt-2">
            <div class="card-body">
               <h3 class="card-title text-info">Pagination component</h3>
-              <p class="card-text card-secondary">Beskrivning: Paginering till för att navigera ..</p>
+              <p class="card-text card-secondary">Beskrivning: Paginering, sidnumrering – dynamiskt numrering av sidor. Komponenten konsumerar en array av typen 'any' som den beräknar längden och skapar upp x antal sidor med nummer.</p>
+              <p><b>Utan extra vy för sidnumrering</b></p>
+              <pre>
+                 <code>
+                  &lt;pagination [items]=&quot;itemsArray&quot; 
+                              [itemsPerPage]=&quot;10&quot;   
+                              (pageChange)=&quot;onPageChanged($event)&quot;&gt;&lt;/pagination&gt;
+                 </code>
+              </pre>
+              <p><b>Med extra vy för sidnumrering</b></p>
+              <pre>
+                 <code>
+                  &lt;pagination [items]=&quot;itemsArray&quot;
+                              [numberOfPagesView]=&quot;true&quot;
+                              [itemsPerPage]=&quot;10&quot;   
+                              (pageChange)=&quot;onPageChanged($event)&quot;&gt;&lt;/pagination&gt;
+                 </code>
+              </pre>
               <div class="text-success">
                  Output
                  <hr>
-                 <!-- Items -->
+                 <p><b>Utan extra vy för sidnumrering</b></p>
+                 <div *ngFor="let item of pageOfItemsArrayFirst">
+                  {{item.name}}
+               </div>
+               <!-- Pagination -->
+               <pagination [items]="itemsArray" 
+                           [itemsPerPage]="10"   
+                           (pageChange)="onPageChangedFirst($event)"></pagination>
+                 <br />
+                 <p><b>Med extra vy för sidnumrering</b></p>
                  <div *ngFor="let item of pageOfItemsArray">
                     {{item.name}}
                  </div>
                  <!-- Pagination -->
                  <pagination [items]="itemsArray"
-                 [numberOfPagesView]="true"
-                 [itemsPerPage]="10"   
-                 (pageChange)="onPageChanged($event)"></pagination>
+                             [numberOfPagesView]="true"
+                             [itemsPerPage]="10"   
+                             (pageChange)="onPageChanged($event)"></pagination>
               </div>
            </div>
         </div>
