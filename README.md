@@ -11,5 +11,5 @@ For usage and read-me run ng s in project root dir.
 ## Install
 
 ```bash
-$ npm install passport-oden
+$ npm install 'name'
 ```
