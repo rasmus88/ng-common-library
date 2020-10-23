@@ -13,6 +13,6 @@
     "tslib": "^2.0.0"
   },
   "publishConfig": {
-    "@radolfsson:registry":"https://git.chas.se/api/v4/projects/683/packages/npm/"
+    "@radolfsson:registry": "https://git.chas.se/api/v4/projects/683/packages/npm/"
   }
-}
+} 
