@@ -1,5 +1,5 @@
 {
-  "name": "@radolfsson/angular-library",
+  "name": "@radolfsson/ng-common-library",
   "version": "1.0.2",
   "peerDependencies": {
     "@angular/common": "^10.1.3",

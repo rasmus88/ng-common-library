@@ -126,7 +126,7 @@
         }
       }
     },
-    "CommonUI-library": { 
+    "ng-common-library": { 
       "projectType": "library",
       "root": "projects/common-ui-lib",
       "sourceRoot": "projects/common-ui-lib/src",
