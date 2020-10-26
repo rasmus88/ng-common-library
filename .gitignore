@@ -6,6 +6,8 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+# ignore npmrc file 
+/projects/common-ui-lib/.npmrc 
 
 # dependencies
 /node_modules

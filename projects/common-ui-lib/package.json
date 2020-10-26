@@ -1,13 +1,18 @@
 {
-  "name": "common-ui-library",
-  "version": "0.0.1",
+  "name": "@radolfsson/ng-common-library",
+  "version": "1.0.2",
+  "description": "An angular library with reusable components and pipes",
+  "author": "Rasmus Adolfsson",
   "peerDependencies": {
     "@angular/common": "^10.1.3",
     "@angular/core": "^10.1.3",
     "@angular/material": "^10.2.2",
     "font-awesome": "^4.7.0"
-  },
+  }, 
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "publishConfig": {
+    "@radolfsson:registry": "https://git.chas.se/api/v4/projects/683/packages/npm/"
   }
-}
+} 
