@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ReadMoreModalComponent } from './read-more-modal.component';
 
 describe('ReadMoreModalComponent', () => {
