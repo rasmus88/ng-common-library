@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'resizable-splitter',

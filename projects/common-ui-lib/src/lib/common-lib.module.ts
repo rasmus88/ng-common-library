@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; 
 
 // Custom Components
 import { AlertComponent } from './components/alert/alert.component';
