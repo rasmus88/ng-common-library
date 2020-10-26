@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// Angular Material
-import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { CommonModule } from '@angular/common'; 
 
 // Custom Components
 import { AlertComponent } from './components/alert/alert.component';
@@ -31,10 +27,7 @@ import { DebounceInputPipe } from './pipes/debounce-input.pipe';
     PaginationComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule
+    CommonModule
   ], 
   exports: [
     AlertComponent,

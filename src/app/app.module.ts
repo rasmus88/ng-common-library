@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 // Angular Material
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
+
 // Pages
 import { HomePageComponent } from './pages/home/home.component';
 import { TestPageComponent } from './pages/test/test.component'; 
+
 // Angular Library
 import { NgCommonLibraryModule } from 'common-ui-library'; 
 
@@ -24,7 +26,6 @@ import { NgCommonLibraryModule } from 'common-ui-library';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatExpansionModule,
     NgCommonLibraryModule,
     AppRoutingModule
   ],
