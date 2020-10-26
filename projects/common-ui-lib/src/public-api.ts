@@ -3,7 +3,7 @@
  */
 
  // Modules
- export * from './lib/common-ui-lib.module';
+ export * from './lib/common-lib.module';
 
  // Services
  export * from './lib/services/alert.service';

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';  
 import { AlertService } from 'dist/common-ui-library'; 
 import { Subscription } from 'rxjs';
-import { AlertNotificationService } from 'src/app/services/alert-notification.service';
  
 interface Person {
   id: number;
@@ -13,7 +12,7 @@ interface Person {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomePageComponent {
   options = {
     autoClose: false,
     keepAfterRouteChange: false
@@ -43,9 +42,7 @@ export class HomeComponent {
   pageOfItemsArrayFirst: Array<any>;
   pageOfItemsArray: Array<any>;
 
-  constructor(public alertService: AlertService, public alertTestService: AlertNotificationService) { 
-     
-     console.log(this.itemsArray);
+  constructor(public alertService: AlertService) {
   } 
  
   filterArray(value: any) {

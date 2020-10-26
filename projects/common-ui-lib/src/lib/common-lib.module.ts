@@ -16,10 +16,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ReplacePipe } from './pipes/replace.pipe';
 import { CallbackFilterPipe } from './pipes/callback-filter.pipe';
 import { DefaultPipe } from './pipes/default.pipe';
-import { DebounceInputPipe } from './pipes/debounce-input.pipe'; 
-
-// Custom Services
-// import { AlertService } from './services/alert.service';
+import { DebounceInputPipe } from './pipes/debounce-input.pipe';
 
 @NgModule({
   declarations: [
@@ -51,4 +48,4 @@ import { DebounceInputPipe } from './pipes/debounce-input.pipe';
     DebounceInputPipe
   ]
 })
-export class CommonUiLibraryModule { }
+export class NgCommonLibraryModule { }
