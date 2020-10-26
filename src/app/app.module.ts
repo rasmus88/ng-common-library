@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 // Angular Material
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatExpansionModule } from '@angular/material/expansion';
 
 // Pages
 import { HomePageComponent } from './pages/home/home.component';
@@ -27,7 +26,6 @@ import { NgCommonLibraryModule } from 'common-ui-library';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatExpansionModule,
     NgCommonLibraryModule,
     AppRoutingModule
   ],
