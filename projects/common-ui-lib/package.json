@@ -1,8 +1,22 @@
-{
-  "name": "@radolfsson/ng-common-library",
+{  
+  "name": "@radolfsson/ng-common-library", 
   "version": "1.0.2",
   "description": "An angular library with reusable components and pipes",
   "author": "Rasmus Adolfsson",
+  "publishConfig": {
+    "@radolfsson:registry": "https://git.chas.se/api/v4/projects/683/packages/npm/"
+  },
+  "scripts": {
+    "build": "ng-packagr -p package.json",
+    "postbuild": "ts-node ./scripts/css-bundle.mjs"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../dist/common-ui-library",
+    "lib": {
+      "entryFile": "src/public-api.ts"
+    }
+  },
   "peerDependencies": {
     "@angular/common": "^10.1.3",
     "@angular/core": "^10.1.3",
@@ -12,12 +26,14 @@
     "@angular/platform-browser": "~10.1.3",
     "@angular/platform-browser-dynamic": "~10.1.3",
     "@angular/router": "~10.1.3",
-    "bootstrap": "^4.5.2", 
+    "bootstrap": "^4.5.2",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0"
   },
-  "publishConfig": {
-    "@radolfsson:registry": "https://git.chas.se/api/v4/projects/683/packages/npm/"
-  }
-} 
+  "devDependencies": {
+    "ng-packagr": "^10.1.2",
+    "scss-bundle": "^3.1.2",
+    "ts-node": "^9.0.0"
+  } 
+}

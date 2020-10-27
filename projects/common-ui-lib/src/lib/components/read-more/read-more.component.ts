@@ -19,7 +19,7 @@ export class ReadMoreComponent {
      }); 
    }
    
-   @HostListener('window:resize', ['$event'])
+   @HostListener('window:resize', [])
    onResize() { 
      this.detectEllipsis();
      this.setDefaultCollapsed();  

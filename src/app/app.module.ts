@@ -13,7 +13,7 @@ import { HomePageComponent } from './pages/home/home.component';
 import { TestPageComponent } from './pages/test/test.component'; 
 
 // Angular Library
-import { NgCommonLibraryModule } from 'common-ui-library'; 
+import { NgCommonLibraryModule } from 'common-ui-library';
 
 @NgModule({
   declarations: [

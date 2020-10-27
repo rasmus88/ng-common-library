@@ -26,7 +26,7 @@ export class ResizableSplitterComponent {
       })
   }
 
-  @HostListener('mouseup', ['$event'])
+  @HostListener('mouseup', [])
   nMouseUp() {  
       this.isDragging = false;
   }
@@ -56,8 +56,8 @@ export class ResizableSplitterComponent {
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  resize(event) {
+  @HostListener('window:resize', [])
+  resize() {
     // Left div
     const leftNativeElem = this.leftElemRef.nativeElement; 
     const leftBoundingClientRectElem = leftNativeElem.getBoundingClientRect();
