@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';  
-import { AlertService } from 'dist/common-ui-library'; 
+import { AlertService } from 'dist/ng-common-library'; 
 import { Subscription } from 'rxjs';
  
 interface Person {

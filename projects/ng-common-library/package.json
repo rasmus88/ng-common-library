@@ -12,7 +12,7 @@
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-    "dest": "../../dist/common-ui-library",
+    "dest": "../../dist/ng-common-library",
     "lib": {
       "entryFile": "src/public-api.ts"
     }

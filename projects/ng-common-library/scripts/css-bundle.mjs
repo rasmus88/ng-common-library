@@ -27,7 +27,7 @@ async function bundleScss() {
   }
 
   if (found) { 
-    await writeFile('../../dist/common-ui-library/_theme.scss', bundledContent); 
+    await writeFile('../../dist/ng-common-library/_theme.scss', bundledContent); 
   }
 }
 
