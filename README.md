@@ -13,5 +13,24 @@ For usage and read-me run ng s in project root dir.
 To use the library do the following
 
 ```bash
-$ npm install 'name'
+$ npm i @radolfsson/ng-common-library
 ```
+
+Install all dependencies
+
+import modules (pipes and components)
+
+```bash
+import { NgCommonComponentModule, NgCommonPipeModule } from '@radolfsson/ng-common-library';
+```
+
+Add the default library theme in 'angular.json'
+
+```bash
+"styles": [
+  "src/styles.scss",
+  "node_modules/@radolfsson/ng-common-library/_theme.scss"
+]
+```
+
+Installation done!
