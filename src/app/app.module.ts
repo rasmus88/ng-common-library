@@ -13,7 +13,9 @@ import { HomePageComponent } from './pages/home/home.component';
 import { TestPageComponent } from './pages/test/test.component'; 
 
 // Angular Library
-import { NgCommonLibraryModule } from 'common-ui-library'; 
+import { NgCommonLibraryModule } from 'dist/ng-common-library';
+import { ComponentsModule } from 'dist/ng-common-library';
+import { PipesModule } from 'dist/ng-common-library';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { NgCommonLibraryModule } from 'common-ui-library';
     BrowserAnimationsModule,
     MatDialogModule,
     NgCommonLibraryModule,
+    ComponentsModule,
+    PipesModule,
     AppRoutingModule
   ],
   providers: [

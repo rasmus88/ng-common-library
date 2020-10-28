@@ -8,3 +8,8 @@ div.div-collapse {
     cursor: pointer !important;
     display: inline-block;
 }
+
+.icon-text {
+    display: flex;
+    align-items: center;
+}
