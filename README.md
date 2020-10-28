@@ -4,11 +4,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Built on: Angular: 10.1.3 & Angular CLI: 10.1.3 Node: 12.18.4
 
-## Usage & how-to
+## Documentation
 
-For usage and read-me run ng s in project root dir.
+For read-me & documentation
 
-## Install
+clone this repo
+
+```bash
+https://git.chas.se/radolfsson/angular-library.git
+```
+run ng s in project root dir.
+
+## Installation, usage & how-ot
 
 To use the library do the following
 
