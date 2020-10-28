@@ -1,4 +1,4 @@
-# Angular Library
+# ng-common-library - An angular common library
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
@@ -18,7 +18,7 @@ $ npm i @radolfsson/ng-common-library
 
 Install all dependencies
 
-import modules (pipes and components)
+import modules (pipes and/or components)
 
 ```bash
 import { NgCommonComponentModule, NgCommonPipeModule } from '@radolfsson/ng-common-library';
