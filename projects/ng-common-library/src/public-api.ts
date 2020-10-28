@@ -3,7 +3,12 @@
  */
 
  // Modules
+ // default module
  export * from './lib/common-lib.module';
+ // components module
+ export * from './lib/components/component.module';
+ // pipes module
+ export * from './lib/pipes/pipe.module';
 
  // Services
  export * from './lib/services/alert.service';

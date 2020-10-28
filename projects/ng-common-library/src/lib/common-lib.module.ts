@@ -1,58 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-// Angular Material
-import { MatDialogModule } from '@angular/material/dialog'
-import { MatIconModule } from '@angular/material/icon'
-
-// Custom Components
-import { AlertComponent } from './components/alert/alert.component';
-import { ReadMoreComponent } from './components/read-more/read-more.component';
-import { ReadMoreModalComponent } from './components/read-more-modal/read-more-modal.component';
-import { ResizableSplitterComponent } from './components/resizable-splitter/resizable-splitter.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
-
-// Custom Pipes
-import { ReplacePipe } from './pipes/replace.pipe';
-import { CallbackFilterPipe } from './pipes/callback-filter.pipe';
-import { DefaultPipe } from './pipes/default.pipe';
-import { DebounceInputPipe } from './pipes/debounce-input.pipe';
-
+import { NgModule } from '@angular/core'; 
+// Shared
+import { SharedModule } from './shared/shared.module';
+ 
 @NgModule({
-  declarations: [
-    AlertComponent,
-    ReadMoreComponent,
-    ReadMoreModalComponent,
-    ResizableSplitterComponent,
-    ReplacePipe, 
-    CallbackFilterPipe,
-    DefaultPipe,
-    DebounceInputPipe,
-    PaginationComponent
+  declarations: [ 
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatIconModule
+  imports: [ 
+    SharedModule 
   ], 
   exports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatIconModule,
-    AlertComponent,
-    ReadMoreComponent,
-    ReadMoreModalComponent,
-    ResizableSplitterComponent,
-    PaginationComponent,
-    ReplacePipe,
-    CallbackFilterPipe,
-    DefaultPipe,
-    DebounceInputPipe
+    SharedModule 
   ]
 })
 export class NgCommonLibraryModule { }
