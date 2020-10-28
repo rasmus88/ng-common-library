@@ -1,4 +1,4 @@
-# ng-common-library - An angular common library
+# ng-common-library - an angular common library
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
@@ -20,7 +20,7 @@ https://git.chas.se/radolfsson/angular-library.git
 
 4. see doc page for documentation
 
-## Installation, usage & how-to
+## Installation
 
 To use the library do the following
 
