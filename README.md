@@ -8,23 +8,32 @@ Built on: Angular: 10.1.3 & Angular CLI: 10.1.3 Node: 12.18.4
 
 For read-me & documentation
 
-clone this repo
+
+1. clone this repo
 
 ```bash
 https://git.chas.se/radolfsson/angular-library.git
 ```
-run ng s in project root dir.
+
+2. npm install
+
+3. run ng s in project root dir.
+
+4. see doc page for documentation
 
 ## Installation, usage & how-ot
 
 To use the library do the following
 
+1. Install NPM package
+
 ```bash
 $ npm i @radolfsson/ng-common-library
 ```
 
-Install all dependencies
+2. Install all dependencies
 
+3.
 import modules (pipes and/or components)
 
 ```bash
