@@ -8,7 +8,6 @@ Built on: Angular: 10.1.3 & Angular CLI: 10.1.3 Node: 12.18.4
 
 For read-me & documentation
 
-
 1. clone this repo
 
 ```bash
@@ -21,7 +20,7 @@ https://git.chas.se/radolfsson/angular-library.git
 
 4. see doc page for documentation
 
-## Installation, usage & how-ot
+## Installation, usage & how-to
 
 To use the library do the following
 
@@ -33,8 +32,7 @@ $ npm i @radolfsson/ng-common-library
 
 2. Install all dependencies
 
-3.
-import modules (pipes and/or components)
+3. import modules (pipes and/or components)
 
 ```bash
 import { NgCommonComponentModule, NgCommonPipeModule } from '@radolfsson/ng-common-library';
@@ -48,5 +46,4 @@ Add the default library theme in 'angular.json'
   "node_modules/@radolfsson/ng-common-library/_theme.scss"
 ]
 ```
-
 Installation done!
