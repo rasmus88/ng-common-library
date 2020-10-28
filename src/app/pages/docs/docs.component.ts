@@ -9,10 +9,10 @@ interface Person {
 }
 
 @Component({
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './docs.component.html',
+  styleUrls: ['./docs.component.scss']
 })
-export class HomePageComponent {
+export class DocPageComponent {
   options = {
     autoClose: false,
     keepAfterRouteChange: false

@@ -9,18 +9,16 @@ import { AppComponent } from './app.component';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 // Pages
-import { HomePageComponent } from './pages/home/home.component';
+import { DocPageComponent } from './pages/docs/docs.component';
 import { TestPageComponent } from './pages/test/test.component'; 
 
 // Angular Library
-import { NgCommonLibraryModule } from 'dist/ng-common-library';
-import { ComponentsModule } from 'dist/ng-common-library';
-import { PipesModule } from 'dist/ng-common-library';
+import { NgCommonLibraryModule, NgCommonComponentModule, NgCommonPipeModule } from 'dist/ng-common-library';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    HomePageComponent,
+    DocPageComponent,
     TestPageComponent
   ],
   imports: [
@@ -29,8 +27,8 @@ import { PipesModule } from 'dist/ng-common-library';
     BrowserAnimationsModule,
     MatDialogModule,
     NgCommonLibraryModule,
-    ComponentsModule,
-    PipesModule,
+    NgCommonComponentModule,
+    NgCommonPipeModule,
     AppRoutingModule
   ],
   providers: [
