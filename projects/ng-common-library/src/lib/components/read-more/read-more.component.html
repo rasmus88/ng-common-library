@@ -11,10 +11,12 @@
 </ng-template>
 
 <ng-template #defaultButtons>
-    <p *ngIf="isCollapsed">
-        <i class="fa fa-angle-down" aria-hidden="true"></i> Show more
-    </p>
-    <p *ngIf="!isCollapsed">
-        <i class="fa fa-angle-up" aria-hidden="true"></i> Show less
-    </p> 
+    <div class="icon-text" *ngIf="isCollapsed"> 
+            <mat-icon>expand_more</mat-icon>
+            <span>Show more</span> 
+    </div>
+    <div class="icon-text" *ngIf="!isCollapsed"> 
+            <mat-icon>expand_less</mat-icon>
+            <span>Show less</span> 
+    </div> 
 </ng-template>

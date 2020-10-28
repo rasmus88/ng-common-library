@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatIconModule } from '@angular/material/icon'
 
 // Custom Components
 import { AlertComponent } from './components/alert/alert.component';
@@ -27,9 +33,17 @@ import { DebounceInputPipe } from './pipes/debounce-input.pipe';
     PaginationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule
   ], 
   exports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule,
     AlertComponent,
     ReadMoreComponent,
     ReadMoreModalComponent,
