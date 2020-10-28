@@ -11,7 +11,7 @@ For read-me & documentation
 1. clone this repo
 
 ```bash
-https://git.chas.se/radolfsson/angular-library.git
+repo http url..
 ```
 2. npm install
 
@@ -32,7 +32,7 @@ To use the library do the following
 1. Install NPM package
 
 ```bash
-$ npm i @radolfsson/ng-common-library
+npm package url..
 ```
 
 2. Install all dependencies
@@ -40,7 +40,7 @@ $ npm i @radolfsson/ng-common-library
 3. import modules (pipes and/or components)
 
 ```bash
-import { NgCommonComponentModule, NgCommonPipeModule } from '@radolfsson/ng-common-library';
+import { NgCommonComponentModule, NgCommonPipeModule } from 'ng-common-library';
 ```
 
 Add the default library theme in 'angular.json'
@@ -48,7 +48,7 @@ Add the default library theme in 'angular.json'
 ```bash
 "styles": [
   "src/styles.scss",
-  "node_modules/@radolfsson/ng-common-library/_theme.scss"
+  "node_modules/ng-common-library/_theme.scss"
 ]
 ```
 Installation done!
