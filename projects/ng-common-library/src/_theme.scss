@@ -2,7 +2,9 @@
    Default theme
 */
 
+// material icons
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons'); 
 // Angular material pink-bluegrey theme
-@import "../../../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "../../../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"; 
 // Bootstrap css
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
