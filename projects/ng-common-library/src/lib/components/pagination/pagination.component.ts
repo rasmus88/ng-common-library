@@ -7,7 +7,7 @@ import { Page } from '../../models/page.model';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() items: Array<any>;
+  @Input() items: Array<any> = null;
   @Output() pageChange: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
   
   // custom
@@ -25,10 +25,12 @@ export class PaginationComponent implements OnInit {
   constructor() { } 
 
   ngOnInit() { 
-    this.loadPageNavigation();   
+    if(this.items) {
+      this.loadPageNavigation();
+    }
   }
 
-  loadPageNavigation() {    
+  loadPageNavigation() {   
     const pageSize = Math.ceil(this.items.length / this.itemsPerPage);
     // Create pages array
     this.pagesOfItems = new Array(pageSize).fill(0)
