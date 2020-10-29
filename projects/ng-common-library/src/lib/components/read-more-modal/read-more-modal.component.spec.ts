@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material/dialog';
 import { ReadMoreModalComponent } from './read-more-modal.component';
 
 describe('ReadMoreModalComponent', () => {
@@ -7,7 +8,12 @@ describe('ReadMoreModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReadMoreModalComponent ]
+      declarations: [ ReadMoreModalComponent ],
+      providers: [
+        { 
+          provide: MatDialog, useValue: {}
+        }
+      ],
     })
     .compileComponents();
   });
