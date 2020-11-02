@@ -40,11 +40,10 @@ describe('AlertComponent', () => {
     fixture.detectChanges();
   }); 
  
-  describe('alert types', () => {   
-
+  describe('alert types', () => {    
     it('should create success', () => { 
       alertService.success("success", options)
-      expect(component.alertsArray[0].type.valueOf()).toEqual(AlertType.Success);
+      expect(component.alertsArray[0].type.valueOf()).toEqual(AlertType.Success); 
     });
 
     it('should create error', () => { 
@@ -60,8 +59,19 @@ describe('AlertComponent', () => {
     it('should create info', () => { 
       alertService.info("info", options)
       expect(component.alertsArray[0].type.valueOf()).toEqual(AlertType.Info);
-    });
-  }); 
+    }); 
+  });
+
+  it('should delete', () => {
+    alertService.success("success", options)
+    alertService.error("error", options)  
+    alertService.warning("warning", options)
+    alertService.info("info", options)
+  
+    expect(component.alertsArray.length >= 4).toBeTrue();
+    alertService.clear();
+    expect(component.alertsArray.length).toEqual(0);
+  })
 });
 
 class MockAlertService {
