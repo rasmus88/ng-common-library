@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { ReadMoreModalComponent } from './read-more-modal.component';
 
 @Component({
   selector: 'test-readmoremodal',
-  template: '<read-more-modal>testusa uash uhsauh aush uahsuidh aiush iasuh uisah haisudh iaus usuususu uasuususu uaus uasusuu ausu uaisuusu hasiuh sh aisusaisai uods sdoodso ksdodsok oskdodsk osdksdo ksodok kosdk dsok dso kdsokdosko osdk kosdkoko ksodko skokoso kokskdo kodskokoko kosko ksodk oaisiusa uasiu aisua i iuu aii uuuu</read-more-modal>'
+  template: '<read-more-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum.</read-more-modal>'
 })
 class TestReadMoreModalComponent { }
 
@@ -15,6 +15,7 @@ describe('ReadMoreModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      schemas: [ NO_ERRORS_SCHEMA ],
       declarations: [ ReadMoreModalComponent, TestReadMoreModalComponent ],
       providers: [{ provide: MatDialog, useValue: {} }],
     })

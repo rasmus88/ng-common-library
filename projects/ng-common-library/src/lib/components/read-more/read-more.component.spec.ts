@@ -4,7 +4,7 @@ import { ReadMoreComponent } from './read-more.component';
 
 @Component({
   selector: 'test-readmore',
-  template: `<read-more>aos osok osaookssassasa sasasasasasasasa sasasasasasasasasasasa sasasasasasasasasasasasasasa sasasasasasa sasasa okoas osdp oksdosd ksdoods sokdosdko sodas okasosa oassos ososaososoos ossooss os sas as asososo sosoos sososo osoooooooooooooako oaskd oksa osak okosa</read-more>`
+  template: `<read-more>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elit odio, vulputate non faucibus ac, consectetur varius odio. Nunc rutrum sapien id diam ornare, sit amet faucibus ipsum tempus. Vivamus quis blandit turpis. Duis vestibulum nec sapien ut vestibulum.</read-more>`
 })
 class TestReadMoreComponent { }
 
@@ -23,6 +23,7 @@ describe('ReadMoreComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TestReadMoreComponent);
     component = fixture.debugElement.childNodes[0].componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => { 
