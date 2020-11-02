@@ -38,5 +38,4 @@ describe('ReadMoreComponent', () => {
     component.toggleCollapsed();
     expect(component.isCollapsed.valueOf()).toEqual(false); 
   })
-
 });
