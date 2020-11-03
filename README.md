@@ -13,12 +13,17 @@ For read-me & documentation
 ```bash
 https://git.chas.se/radolfsson/angular-library.git
 ```
-
 2. npm install
 
-3. run ng s in project root dir.
+3. cd to ng-common-library folder
 
-4. see doc page for documentation
+4. npm install
+
+5. npm run build
+
+6. run ng s in project root dir.
+
+7. see doc page for documentation
 
 ## Installation
 
