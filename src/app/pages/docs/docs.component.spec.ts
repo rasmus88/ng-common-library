@@ -1,14 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DocPageComponent } from './docs.component';
+import { NgCommonLibraryModule, NgCommonPipeModule, NgCommonComponentModule } from 'dist/ng-common-library';
 
-describe('HomeComponent', () => {
+describe('DocPageComponent', () => {
   let component: DocPageComponent;
   let fixture: ComponentFixture<DocPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DocPageComponent ]
+      declarations: [ DocPageComponent ],
+      imports: [
+        NgCommonLibraryModule,
+        NgCommonComponentModule,
+        NgCommonPipeModule
+      ]
     })
     .compileComponents();
   });

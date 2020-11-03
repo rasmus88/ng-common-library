@@ -25,14 +25,16 @@ import { NgCommonLibraryModule, NgCommonComponentModule, NgCommonPipeModule } fr
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule,
+    MatDialogModule, 
+    AppRoutingModule,
     NgCommonLibraryModule,
     NgCommonComponentModule,
-    NgCommonPipeModule,
-    AppRoutingModule
+    NgCommonPipeModule
   ],
   providers: [
-    { provide: MAT_DIALOG_DATA, useValue: {} }
+    { 
+      provide: MAT_DIALOG_DATA, useValue: {}
+    }
   ],
   bootstrap: [AppComponent]
 })

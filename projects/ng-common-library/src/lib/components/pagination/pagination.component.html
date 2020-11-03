@@ -1,8 +1,8 @@
-<div *ngIf="numberOfPagesView" class="properties">
+<div *ngIf="numberOfPagesView" id="pageView" class="properties">
   <p>Sida: {{ activePageNumber }} av {{ pagesOfItems.length }}</p>
 </div>
 
-<div class="pagination-container">
+<div *ngIf="items" class="pagination-container">
    <div class="first" [class.disabled]="activePageNumber === defaultPageNumber" (click)="firstPage()">First</div>
     <div class="prev" [class.disabled]="activePageNumber === defaultPageNumber" (click)="previousPage()">&laquo;</div>
    
