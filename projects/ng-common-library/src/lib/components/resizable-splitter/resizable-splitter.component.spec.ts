@@ -72,8 +72,8 @@ describe('ResizableSplitterComponent', () => {
       expect(component.handleElemRef.nativeElement.className).toBe('handle');
     })
 
-    it('bottom shoulde have .bottom css class', () => {
-      let bottomElem = fixture.nativeElement.querySelector('.bottom').className;
+    it('bottom should have .bottom css class', () => {
+      const bottomElem = fixture.nativeElement.querySelector('.bottom').className;
       expect(bottomElem).toBe('bottom');
     })
   })
