@@ -32,3 +32,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('footer').textContent).toContain(headerTitle);
   })
 });
+ 
