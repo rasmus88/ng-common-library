@@ -10,7 +10,7 @@
     "build": "ng-packagr -p package.json",
     "postbuild": "ts-node ./scripts/css-bundle.mjs"
   },
-  "ngPackage": {
+  "ngPackage": { 
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../../dist/ng-common-library",
     "lib": {

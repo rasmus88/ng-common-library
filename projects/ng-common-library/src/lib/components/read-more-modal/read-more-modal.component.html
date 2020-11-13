@@ -4,7 +4,7 @@
     </span>
   </div>
   
-  <ng-template [ngTemplateOutlet]="buttonsContainer"></ng-template>
+  <ng-template [ngTemplateOutlet]="buttonsContainer"></ng-template> 
   
   <ng-template #buttonsContainer>
       <div *ngIf="isEllipsisActive" (click)="openModal()" class="div-collapse">
@@ -13,6 +13,6 @@
   </ng-template>
   
   <ng-template #defaultButtons>
-      <p *ngIf="!isModalOpened"> Show more</p>
-      <p *ngIf="isModalOpened"> Show less</p>
+      <p id='showMore' *ngIf="!isModalOpened"> Show more</p>
+      <p id='showLess' *ngIf="isModalOpened"> Show less</p>
   </ng-template>

@@ -127,36 +127,36 @@
     },
     "ng-common-library": { 
       "projectType": "library",
-      "root": "projects/common-ui-lib",
-      "sourceRoot": "projects/common-ui-lib/src",
+      "root": "projects/ng-common-library",
+      "sourceRoot": "projects/ng-common-library/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/common-ui-lib/tsconfig.lib.json",
-            "project": "projects/common-ui-lib/ng-package.json"
-          },
+            "tsConfig": "projects/ng-common-library/tsconfig.lib.json",
+            "project": "projects/ng-common-library/ng-package.json"
+          }, 
           "configurations": {
             "production": {
-              "tsConfig": "projects/common-ui-lib/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ng-common-library/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/common-ui-lib/src/test.ts",
-            "tsConfig": "projects/common-ui-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/common-ui-lib/karma.conf.js"
+            "main": "projects/ng-common-library/src/test.ts",
+            "tsConfig": "projects/ng-common-library/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-common-library/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/common-ui-lib/tsconfig.lib.json",
-              "projects/common-ui-lib/tsconfig.spec.json"
+              "projects/ng-common-library/tsconfig.lib.json",
+              "projects/ng-common-library/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

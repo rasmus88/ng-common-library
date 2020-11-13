@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';  
+import { ChangeDetectorRef, Component } from '@angular/core';  
 import { AlertService } from 'dist/ng-common-library'; 
-import { Subscription } from 'rxjs';
- 
+
 interface Person {
   id: number;
   firstName: string;
@@ -17,8 +16,6 @@ export class DocPageComponent {
     autoClose: false,
     keepAfterRouteChange: false
   };
-  alertSubscription: Subscription;
-  title = 'CommonUI-App';
   testar: string = "Rasmus";
   nullVar = null;
   userInput: string = ""; 
@@ -36,14 +33,13 @@ export class DocPageComponent {
     lastName: 'Adolfsson'
   }];
  
-  messages: Array<any> = [];
-  subscription: Subscription; 
-  itemsArray: Array<any> = [...this.fillArray()];
-  pageOfItemsArrayFirst: Array<any>;
-  pageOfItemsArray: Array<any>;
+  messages: Array<any> = []; 
+  itemsArray: Array<any> = [...this.fillArray()]
+  pageOfItemsArrayFirst: Array<any> = null;
+  pageOfItemsArray: Array<any> = null;
 
-  constructor(public alertService: AlertService) {
-  } 
+  constructor(public alertService: AlertService, private changeDetectorRef: ChangeDetectorRef) {
+  }
  
   filterArray(value: any) {
     if(value == 'Rasmus') {
@@ -59,10 +55,14 @@ export class DocPageComponent {
  
   onPageChangedFirst(pageOfItems: Array<any>) {
     this.pageOfItemsArrayFirst = pageOfItems;
+
+    this.changeDetectorRef.detectChanges();
   }
 
   onPageChanged(pageOfItems: Array<any>) { 
-    this.pageOfItemsArray = pageOfItems; 
+    this.pageOfItemsArray = pageOfItems;
+
+    this.changeDetectorRef.detectChanges();
   }
 
   fillArray(): Array<any> {
