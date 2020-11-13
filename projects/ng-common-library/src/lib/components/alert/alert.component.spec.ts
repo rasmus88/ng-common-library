@@ -29,7 +29,7 @@ describe('AlertComponent', () => {
       providers: [ { provide: AlertService, useClass: MockAlertService }],
       declarations: [ AlertComponent, TestAlertComponent ],
       imports: [RouterTestingModule], 
-    })
+    }) 
     .compileComponents(); 
   });
 

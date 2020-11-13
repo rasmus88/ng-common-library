@@ -136,7 +136,7 @@
           "options": {
             "tsConfig": "projects/ng-common-library/tsconfig.lib.json",
             "project": "projects/ng-common-library/ng-package.json"
-          },
+          }, 
           "configurations": {
             "production": {
               "tsConfig": "projects/ng-common-library/tsconfig.lib.prod.json"

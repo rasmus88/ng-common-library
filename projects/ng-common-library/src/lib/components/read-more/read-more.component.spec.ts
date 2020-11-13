@@ -32,7 +32,7 @@ describe('ReadMoreComponent', () => {
 
   it('should be collapsed as default', () => { 
     expect(component.isCollapsed.valueOf()).toEqual(true);
-  })
+  }) 
 
   it('should not be collapsed after click', () => { 
     component.toggleCollapsed();

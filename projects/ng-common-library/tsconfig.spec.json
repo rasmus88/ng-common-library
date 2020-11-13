@@ -10,7 +10,7 @@
   "files": [
     "src/test.ts"
   ],
-  "include": [
+  "include": [ 
     "**/*.spec.ts",
     "**/*.d.ts"
   ]

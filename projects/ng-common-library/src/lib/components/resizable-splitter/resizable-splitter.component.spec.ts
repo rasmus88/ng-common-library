@@ -62,7 +62,7 @@ describe('ResizableSplitterComponent', () => {
     
     it('left should have a .left css class', () => {
       expect(component.leftElemRef.nativeElement.className).toBe('left');
-    })
+    }) 
     
     it('right should have a .right css class', () => {
       expect(component.rightElemRef.nativeElement.className).toBe('right');

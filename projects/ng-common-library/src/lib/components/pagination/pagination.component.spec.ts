@@ -9,7 +9,7 @@ import { PaginationComponent } from './pagination.component';
              [numberOfPagesView]="true"
              (pageChange)="onPageChangedFirst($event)"></pagination>`
 })
-class TestPaginationComponent {
+class TestPaginationComponent { 
    itemsArray = [];
    pages = [];
    constructor() {

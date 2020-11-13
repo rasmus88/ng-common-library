@@ -35,7 +35,7 @@ describe('ReadMoreModalComponent', () => {
   it('should have text content', () => {
     const content = component.contentTextRef.nativeElement.innerHTML;
     expect(content.length >= 1).toBeTrue();
-  })
+  }) 
 
   it('should have show more text visible', () => {
     let showMoreText = component.divElementRef.nativeElement.parentElement.querySelector('.div-collapse').innerText;

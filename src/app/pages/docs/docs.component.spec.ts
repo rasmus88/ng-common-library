@@ -17,7 +17,7 @@ describe('DocPageComponent', () => {
       ]
     })
     .compileComponents();
-  });
+  }); 
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DocPageComponent);
